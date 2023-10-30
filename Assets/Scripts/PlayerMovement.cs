@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 	public float mov_accel;
 	public float mov_maxSpeed;
 	public float mov_decay;
-	Vector2 v; // velocity
+	[HideInInspector] public Vector2 v; // velocity
 	bool movement_locked;
 
 	//Dashing (direct jump between positions)
