@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/CommoditiesList.cs.meta
-guid: b3897d74c06c64a798394cb4f8319103
-========
-guid: 6bd53e1ac0f6a451783c749362410da0
->>>>>>>> main:Assets/Scripts/PlayerMovement.cs.meta
+guid: 4a58ef4f4170c43d7b2cc2fdaa9ef248
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
