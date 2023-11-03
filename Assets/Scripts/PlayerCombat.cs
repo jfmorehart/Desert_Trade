@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
 	[Header("Throwing")]
+	public Transform throwPoint; // place where the projectile should spawn
 	public KeyCode throwKey; // rebindable
 	public GameObject throwable; // todo replace with better system
 	public float throwReload; // time between throws
@@ -24,7 +25,6 @@ public class PlayerCombat : MonoBehaviour
 		}
 	}
 
-
 	void TryThrow() {
 
 		if (Time.time - lastThrowTime > throwReload)
@@ -33,12 +33,19 @@ public class PlayerCombat : MonoBehaviour
 		}
 		else return;
 
-		Vector3 throwOff = pmov.isFacingRight? Vector3.right : -Vector3.right;
+		//Figure out direction
+		int dir = pmov.isFacingRight? 1 : -1;
+
+		// Flip throw vector as required
+		Vector3 throwOff = new Vector2(throwPoint.localPosition.x * dir, throwPoint.localPosition.y);
+
+		//Instantiate throwable
 		GameObject g = Instantiate(throwable,
 		transform.position + throwOff,
 		Quaternion.identity);
 
-		g.GetComponent<Throwable>().Throw(throwOff);
+		// Tell the sword which way to go
+		g.GetComponent<Throwable>().Throw(Vector3.right * dir);
 	
     }
 }
