@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CommoditiesList : MonoBehaviour
 {
-    enum Commodities
+   public enum CommoditiesNames
     {
         Jewelry,
         Daggers,
