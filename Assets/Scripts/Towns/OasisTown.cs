@@ -1,18 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class OasisTown : Town
 {
-    // Start is called before the first frame update
-    void Start()
+        //public List<CommoditiesNames> commoditiesNames;
+
+        void Start()
+        {
+            commoditiesPrice = PopulatePrice(commoditiesPrice);
+            foreach (var kvp in commoditiesPrice)
+            {
+                Debug.Log("Key: " + kvp.Key + ", Value: " + kvp.Value);
+            }
+
+
+        }
+
+    private void Update()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

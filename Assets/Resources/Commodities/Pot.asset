@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64cb410cad85f4618b5d934c5d33211b, type: 3}
-  m_Name: Dagger
+  m_Name: Pot
   m_EditorClassIdentifier: 
-  townExportFrom: 
-  commodityName: 
-  commodityBasePrice: 0
+  townExportFrom: Cave
+  commodityName: Pot
+  commodityBasePrice: 75

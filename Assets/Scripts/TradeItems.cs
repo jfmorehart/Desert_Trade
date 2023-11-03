@@ -7,4 +7,6 @@ public class TradeItems : ScriptableObject
     public string townExportFrom;
     public string commodityName;
     public int commodityBasePrice;
+    public int commodityMaxPrice;
+    public int commodityMinPrice;
 }
