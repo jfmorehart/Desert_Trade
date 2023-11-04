@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Throwable : MonoBehaviour
 {
+	public int damage;
     public float spinSpeed;
     public float throwVel;
 
@@ -20,15 +21,17 @@ public class Throwable : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		// dumb, probably slow might just switch to an inheritance structure
-		MonoBehaviour[] mbs = collision.gameObject.GetComponents<MonoBehaviour>();
-		foreach (MonoBehaviour m in mbs)
-		{
-			if (m is IDamageable idintr)
+		if (collision.collider.CompareTag("Shield")) {
+			collision.collider.GetComponent<HP>().Damage(damage);
+		}
+		else {
+			// dumb, probably slow might just switch to an inheritance structure
+			IDamageable mbs = collision.collider.gameObject.GetComponent<IDamageable>();
+			if (mbs is IDamageable idintr)
 			{
-				idintr.Hit(3, collision.transform.position - transform.position);
-				break;
+				idintr.Hit(damage, collision.transform.position - transform.position);
 			}
+
 		}
 
 		Destroy(gameObject);

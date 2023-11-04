@@ -2,33 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamageable
+public class Enemy : Humanoid
 {
-
 	public float mov_speed;
 	Rigidbody2D rb;
 
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	private void Update()
+	protected override void MovementUpdate()
 	{
-		//Vector3 target = CombatUtils.ins.LeadTarget(
-		//	3, transform.position, mov_speed,
-		//	CombatUtils.ins.player.transform.position,
-		//	CombatUtils.ins.player.v);
+		rb.velocity = Vector2.ClampMagnitude(rb.velocity, mov_speed);
 		Vector3 target = CombatUtils.ins.player.transform.position;
 
 		Vector2 delta = target - transform.position;
 		delta.y *= 0.1f; // to slow merging
 		rb.velocity += mov_speed * Time.deltaTime * delta.normalized;
-		rb.velocity = Vector2.ClampMagnitude(rb.velocity, mov_speed);
+
+		if (delta.x > 0) { 
+			if(!isFacingRight)
+			{
+				FaceDir(true);
+			}
+		}
+		else {
+			if (isFacingRight)
+			{
+				FaceDir(false);
+			}
+		}
 	}
 
-	public void Hit(int dmg, Vector2 thru)
+	public override void Hit(int dmg, Vector2 thru)
 	{
+		base.Hit(dmg, thru);
 		rb.AddForce(5000 * dmg * thru);
 	}
+
+	public override void Kill() {
+		base.Kill();
+    }
 }

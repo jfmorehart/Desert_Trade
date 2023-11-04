@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f836582a88cf545299485edf24cfd35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3
   spinSpeed: -1000
   throwVel: 10
 --- !u!50 &2736494197520779628
