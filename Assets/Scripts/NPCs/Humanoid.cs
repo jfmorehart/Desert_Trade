@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class Humanoid : MonoBehaviour, IDamageable
 {
-	[Header("HP")]
-	public HP hp;
+	[Header("Humanoid")]
+	public Team team;
+    public HP hp;
 
-	[Header("AnimStuff")]
+	protected Rigidbody2D rb;
 	public bool isFacingRight = true;
     public bool isMoving;
 	public bool movement_locked;
 
-	public Team team;
+
 
 	protected virtual void Awake()
 	{
 		hp.SetOwner(this as IDamageable);
+		rb = GetComponent<Rigidbody2D>();
 	}
 
 	protected virtual void Update()
@@ -41,8 +43,17 @@ public class Humanoid : MonoBehaviour, IDamageable
 		}
     }
 
-    public virtual void Hit(int dmg, Vector2 thru) {
+	//In case animation needs these functions later
+	public virtual void StartMoving() {
+		isMoving = true;
+    }
+	public virtual void StopMoving() {
+		isMoving = false;
+    }
+
+    public virtual void Hit(int dmg, Vector2 thru, Team responsible) {
 		hp.Damage(dmg);
+		rb.AddForce(1000 * dmg * thru);
 	}
 	public virtual void Kill()
 	{

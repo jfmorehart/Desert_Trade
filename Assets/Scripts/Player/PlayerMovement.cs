@@ -11,7 +11,6 @@ public class PlayerMovement : Humanoid
 	public float mov_accel;
 	public float mov_maxSpeed;
 	public float mov_decay;
-	Rigidbody2D rb;
 
 
 	//Dashing (direct jump between positions)
@@ -30,7 +29,6 @@ public class PlayerMovement : Humanoid
 	protected override void Awake()
 	{
 		base.Awake();
-		rb = GetComponent<Rigidbody2D>();
 	}
 
 	protected override void MovementUpdate()

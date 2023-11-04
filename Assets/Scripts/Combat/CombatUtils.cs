@@ -5,9 +5,8 @@ using UnityEngine;
 public class CombatUtils : MonoBehaviour
 {
 	public static CombatUtils ins; // short for instance
-
-	[HideInInspector]
 	public PlayerMovement player;
+	public bool playerisEvil;
 
 	private void Awake()
 	{
@@ -20,5 +19,6 @@ public enum Team
 {
 	Neutral,
 	Player,
-	Enemy
+	Bandit,
+	Villager
 }

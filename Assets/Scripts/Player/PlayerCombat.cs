@@ -55,7 +55,7 @@ public class PlayerCombat : MonoBehaviour
 		Quaternion.identity);
 
 		// Tell the sword which way to go
-		g.GetComponent<Throwable>().Throw(Vector3.right * dir);
+		g.GetComponent<Throwable>().Throw(Vector3.right * dir, pmov.team);
 	
     }
 }
