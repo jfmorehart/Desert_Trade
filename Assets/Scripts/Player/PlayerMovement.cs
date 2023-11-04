@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Humanoid
 {
 	[Header("Keybinds")]
 	public KeyCode dash;
@@ -12,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
 	public float mov_maxSpeed;
 	public float mov_decay;
 	Rigidbody2D rb;
-	bool movement_locked;
-	public bool isFacingRight;
 
 
 	//Dashing (direct jump between positions)
@@ -22,28 +20,21 @@ public class PlayerMovement : MonoBehaviour
 	public float dash_cooldown;
 	float dash_last; //used for timing
 
-	[Header("Sprinting")]
 	//Sprinting (increased movespeed post dash)
+	[Header("Sprinting")]
 	public float sprint_duration;
 	public float mov_sprintMax;
 	public float mov_accel_sprint;
-	float sprint_last; //used for timing
 	bool sprinting;
 
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	private void Update()
+	protected override void MovementUpdate()
 	{
-		MovementUpdate();
-    }
-
-	void MovementUpdate()
-	{
-		if (movement_locked) return; // for cutscenes etc
-
 		Vector2 mvm;
 
 		//Get player wasd input
@@ -94,13 +85,13 @@ public class PlayerMovement : MonoBehaviour
 
 		if(mx > 0) {
 			if (!isFacingRight) {
-				isFacingRight = true;
+				FaceDir(true);
 			}
 		}
 		else 
 		{
 			if (isFacingRight) {
-				isFacingRight = false;
+				FaceDir(false);
 			}
 		}
     }
