@@ -8,13 +8,16 @@ public class Throwable : MonoBehaviour
     public float spinSpeed;
     public float throwVel;
 
+	public Team ownerteam;
+
     Rigidbody2D rb;
 
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 	}
-	public void Throw(Vector2 dir) {
+	public void Throw(Vector2 dir, Team nteam) {
+		ownerteam = nteam;
 		rb.velocity = throwVel * dir;
 		rb.angularVelocity = spinSpeed;
     }
@@ -28,7 +31,7 @@ public class Throwable : MonoBehaviour
 			IDamageable mbs = collision.collider.gameObject.GetComponent<IDamageable>();
 			if (mbs is IDamageable idintr)
 			{
-				idintr.Hit(damage, collision.transform.position - transform.position);
+				idintr.Hit(damage, collision.transform.position - transform.position, ownerteam);
 			}
 
 		}

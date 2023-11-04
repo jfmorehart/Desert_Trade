@@ -8,6 +8,8 @@ public class Melee : MonoBehaviour
 	Renderer ren;
 	Team team;
 
+
+	//Maybe should be replaced with struct system
 	[Header("Stats")]
 	public int damage;
 	public float attackDuration;
@@ -64,7 +66,7 @@ public class Melee : MonoBehaviour
 		IDamageable mbs = collision.gameObject.GetComponent<IDamageable>();
 		if (mbs is IDamageable idintr)
 		{
-			idintr.Hit(damage, collision.transform.position - transform.position);
+			idintr.Hit(damage, collision.transform.position - transform.position, team);
 		}
 
 	}
