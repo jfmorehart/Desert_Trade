@@ -25,7 +25,6 @@ public class Throwable : MonoBehaviour
 			collision.collider.GetComponent<HP>().Damage(damage);
 		}
 		else {
-			// dumb, probably slow might just switch to an inheritance structure
 			IDamageable mbs = collision.collider.gameObject.GetComponent<IDamageable>();
 			if (mbs is IDamageable idintr)
 			{

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+	[Header("Melee")]
+	public KeyCode meleeKey; // rebindable
+	public Melee weapon;
+
 	[Header("Throwing")]
 	public Transform throwPoint; // place where the projectile should spawn
 	public KeyCode throwKey; // rebindable
@@ -23,7 +27,13 @@ public class PlayerCombat : MonoBehaviour
 		if (Input.GetKeyDown(throwKey)) {
 			TryThrow();
 		}
+
+		if (Input.GetKeyDown(meleeKey))
+		{
+			weapon.TryStab();
+		}
 	}
+
 
 	void TryThrow() {
 

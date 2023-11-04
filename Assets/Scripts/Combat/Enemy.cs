@@ -7,6 +7,10 @@ public class Enemy : Humanoid
 	public float mov_speed;
 	Rigidbody2D rb;
 
+	public float meleeDist;
+	public Melee weapon;
+
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -33,6 +37,10 @@ public class Enemy : Humanoid
 			{
 				FaceDir(false);
 			}
+		}
+
+		if(delta.magnitude < meleeDist) {
+			weapon.TryStab();
 		}
 	}
 

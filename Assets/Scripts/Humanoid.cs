@@ -12,6 +12,8 @@ public class Humanoid : MonoBehaviour, IDamageable
     public bool isMoving;
 	public bool movement_locked;
 
+	public Team team;
+
 	protected virtual void Awake()
 	{
 		hp.SetOwner(this as IDamageable);
