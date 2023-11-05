@@ -3,35 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CaveTown : Town
+public class UndergroundTown : Town
 {
-    public enum CaveCommoditiesNames
+    public enum CulturalCommoditiesNames
     {
-        Jewelry,
-        Dagger,
-        Pot
+        Gold,
+        Copper,
+        Coal
     }
     private int stabilizer = 99;
-
     protected override void Restock()
     {
-        supplyList[CommoditiesNames.Jewelry] = (supplyList[CommoditiesNames.Jewelry] > supplyInitialValue) ? supplyList[CommoditiesNames.Jewelry] : supplyInitialValue;
-        supplyList[CommoditiesNames.Dagger] = (supplyList[CommoditiesNames.Dagger] > supplyInitialValue) ? supplyList[CommoditiesNames.Dagger] : supplyInitialValue;
-        supplyList[CommoditiesNames.Pot] = (supplyList[CommoditiesNames.Pot] > supplyInitialValue) ? supplyList[CommoditiesNames.Pot] : supplyInitialValue;
+        supplyList[CommoditiesNames.Gold] = (supplyList[CommoditiesNames.Gold] > supplyInitialValue) ? supplyList[CommoditiesNames.Gold] : supplyInitialValue;
+        supplyList[CommoditiesNames.Copper] = (supplyList[CommoditiesNames.Copper] > supplyInitialValue) ? supplyList[CommoditiesNames.Copper] : supplyInitialValue;
+        supplyList[CommoditiesNames.Coal] = (supplyList[CommoditiesNames.Coal] > supplyInitialValue) ? supplyList[CommoditiesNames.Coal] : supplyInitialValue;
     }
 
     protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
     {
         balanceSupply(netWork);
-
-        //supply for others decrease over time
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
-            if (name == CommoditiesNames.Jewelry || name == CommoditiesNames.Dagger || name == CommoditiesNames.Pot)
+            if (name == CommoditiesNames.Gold || name == CommoditiesNames.Copper || name == CommoditiesNames.Coal)
             {
                 demandList[name] = 1;
             }
-            
 
             priceList[name] = Mathf.Clamp(commoditiesPrice[name][0] * (demandList[name] + stabilizer) / (supplyList[name] + stabilizer), commoditiesPrice[name][2], commoditiesPrice[name][1]);
             print(name + " " + priceList[name]);
@@ -46,9 +42,9 @@ public class CaveTown : Town
         demandList = PopulateDemand(demandList);
         supplyList = PopulateDemand(supplyList);
 
-        demandList[CommoditiesNames.Jewelry] = 1;
-        demandList[CommoditiesNames.Dagger] = 1;
-        demandList[CommoditiesNames.Pot] = 1;
+        demandList[CommoditiesNames.Gold] = 1;
+        demandList[CommoditiesNames.Copper] = 1;
+        demandList[CommoditiesNames.Coal] = 1;
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
             finalValue.Add(name, commoditiesPrice[name][0]);

@@ -15,3 +15,5 @@ MonoBehaviour:
   townExportFrom: Cave
   commodityName: Jewelry
   commodityBasePrice: 200
+  commodityMaxPrice: 1000
+  commodityMinPrice: 1

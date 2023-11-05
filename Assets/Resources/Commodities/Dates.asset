@@ -15,3 +15,5 @@ MonoBehaviour:
   townExportFrom: Oasis
   commodityName: Dates
   commodityBasePrice: 10
+  commodityMaxPrice: 50
+  commodityMinPrice: 1

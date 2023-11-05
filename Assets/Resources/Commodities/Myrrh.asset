@@ -15,3 +15,5 @@ MonoBehaviour:
   townExportFrom: Hub
   commodityName: Myrrh
   commodityBasePrice: 40
+  commodityMaxPrice: 200
+  commodityMinPrice: 1
