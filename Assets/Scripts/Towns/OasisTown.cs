@@ -54,15 +54,15 @@ public class OasisTown : Town
         //UpdatePrice(finalValue);
     }
 
-    public void UseUpdatePrice()
-    {
-        display.text = "";
-        foreach (var k in UpdatePrice(finalValue))
-        {
-            CommoditiesNames key = k.Key;
-            int value = k.Value;
-            display.text += ("Key: " + key + ", Value: " + value + " \n");
-        }
-    }
+    //public void UseUpdatePrice()
+    //{
+    //    display.text = "";
+    //    foreach (var k in UpdatePrice(finalValue))
+    //    {
+    //        CommoditiesNames key = k.Key;
+    //        int value = k.Value;
+    //        display.text += ("Key: " + key + ", Value: " + value + " \n");
+    //    }
+    //}
 
 }

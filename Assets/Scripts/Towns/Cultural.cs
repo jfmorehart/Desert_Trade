@@ -52,16 +52,16 @@ public class Cultural : Town
         //UpdatePrice(finalValue);
     }
 
-    public void UseUpdatePrice()
-    {
-        display.text = "";
-        foreach (var k in UpdatePrice(finalValue))
-        {
-            CommoditiesNames key = k.Key;
-            int value = k.Value;
+    //public void UseUpdatePrice(GameObject townName)
+    //{
+    //    display.text = "";
+    //    foreach (var k in UpdatePrice(finalValue))
+    //    {
+    //        CommoditiesNames key = k.Key;
+    //        int value = k.Value;
             
-            display.text += ("Key: " + key + ", Value: " + value + " \n");
-        }
-    }
+    //        display.text += ( key + ": Value: " + value + " \n");
+    //    }
+    //}
 
 }

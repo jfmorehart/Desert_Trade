@@ -111,13 +111,25 @@ public abstract class Town : MonoBehaviour
 
     protected void decreaseSupply(Town[] netWork, CommoditiesNames name)
     {
-        this.supplyList[name] = (int)((Mathf.Round(UnityEngine.Random.Range(-10.0f, 10.0f) * 100f) / 100f) * this.supplyList[name]);
+        int changeInSupply = (int)((Mathf.Round(UnityEngine.Random.Range(0.1f, 1.0f) * 100f) / 100f) * this.supplyList[name]);
+        this.supplyList[name] = changeInSupply;
         for (int i = 0; i < netWork.Length; i++)
         {
-            netWork[i].supplyList[name] = (int)((Mathf.Round(UnityEngine.Random.Range(-10.0f, 10.0f) * 100f) / 100f) * netWork[i].supplyList[name]);
+            netWork[i].supplyList[name] = (int)((Mathf.Round(UnityEngine.Random.Range(0.1f, 1.0f) * 100f) / 100f) * netWork[i].supplyList[name]);
         }
     }
 
+    public void UseUpdatePrice(Town townName)
+    {
+        display.text = "";
+        foreach (var k in UpdatePrice(townName.finalValue))
+        {
+            CommoditiesNames key = k.Key;
+            int value = k.Value;
+
+            display.text += (key + " Value: " + value + " \n");
+        }
+    }
 
     protected abstract void Restock();
     protected abstract Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList);
