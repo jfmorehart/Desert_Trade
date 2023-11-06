@@ -14,13 +14,9 @@ public class OasisTown : Town
     }
 
     private int stabilizer = 99;
-    protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
-    {
-        //commodities produced locally
-        //demandList[CommoditiesNames.Dates] = 1;
-        //demandList[CommoditiesNames.Water] = 1;
-        //demandList[CommoditiesNames.Cotton] = 1;
 
+    protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
+    { 
         //supply for others decrease over time
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
@@ -28,11 +24,12 @@ public class OasisTown : Town
             {
                 demandList[name] = 1;
             }
-            balanceSupply(netWork);
-
+            decreaseSupply(netWork, name);
+            balanceSupply(netWork, name);
             priceList[name] = Mathf.Clamp(commoditiesPrice[name][0] * (demandList[name] + stabilizer) / (supplyList[name] + stabilizer), commoditiesPrice[name][2], commoditiesPrice[name][1]);
-            print(name + " " + priceList[name]);
+            print(name + " " + priceList[name] + " " + demandList[name]);
         }
+
         return priceList;
     }
 
@@ -43,7 +40,6 @@ public class OasisTown : Town
         supplyList[CommoditiesNames.Cotton] = (supplyList[CommoditiesNames.Cotton] > supplyInitialValue) ? supplyList[CommoditiesNames.Cotton] : supplyInitialValue;
     }
 
-        //public List<CommoditiesNames> commoditiesNames;
 
     void Start()
     {
@@ -51,9 +47,9 @@ public class OasisTown : Town
         demandList = PopulateDemand(demandList);
         supplyList = PopulateDemand(supplyList);
 
-        demandList[CommoditiesNames.Dates] = 1;
-        demandList[CommoditiesNames.Water] = 1;
-        demandList[CommoditiesNames.Cotton] = 1;
+        //demandList[CommoditiesNames.Dates] = 1;
+        //demandList[CommoditiesNames.Water] = 1;
+        //demandList[CommoditiesNames.Cotton] = 1;
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
             finalValue.Add(name, commoditiesPrice[name][0]);
@@ -61,12 +57,6 @@ public class OasisTown : Town
 
         UpdatePrice(finalValue);
     }
-
-    void Update()
-    {
-
-    }
-
 
 
 }

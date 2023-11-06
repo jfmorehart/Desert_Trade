@@ -50,7 +50,7 @@ public class UndergroundTown : Town
             finalValue.Add(name, commoditiesPrice[name][0]);
         }
 
-        UpdatePrice(finalValue);
+        //UpdatePrice(finalValue);
     }
 
     // Update is called once per frame

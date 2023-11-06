@@ -13,12 +13,15 @@ public class CaveTown : Town
     }
     private int stabilizer = 99;
 
+
+    //supplies for the locally produced products are always max
     protected override void Restock()
     {
         supplyList[CommoditiesNames.Jewelry] = (supplyList[CommoditiesNames.Jewelry] > supplyInitialValue) ? supplyList[CommoditiesNames.Jewelry] : supplyInitialValue;
         supplyList[CommoditiesNames.Dagger] = (supplyList[CommoditiesNames.Dagger] > supplyInitialValue) ? supplyList[CommoditiesNames.Dagger] : supplyInitialValue;
         supplyList[CommoditiesNames.Pot] = (supplyList[CommoditiesNames.Pot] > supplyInitialValue) ? supplyList[CommoditiesNames.Pot] : supplyInitialValue;
     }
+
 
     protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
     {
@@ -34,7 +37,7 @@ public class CaveTown : Town
             
 
             priceList[name] = Mathf.Clamp(commoditiesPrice[name][0] * (demandList[name] + stabilizer) / (supplyList[name] + stabilizer), commoditiesPrice[name][2], commoditiesPrice[name][1]);
-            print(name + " " + priceList[name]);
+            print(name + " cave " + priceList[name]);
         }
         return priceList;
     }
@@ -46,15 +49,12 @@ public class CaveTown : Town
         demandList = PopulateDemand(demandList);
         supplyList = PopulateDemand(supplyList);
 
-        demandList[CommoditiesNames.Jewelry] = 1;
-        demandList[CommoditiesNames.Dagger] = 1;
-        demandList[CommoditiesNames.Pot] = 1;
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
             finalValue.Add(name, commoditiesPrice[name][0]);
         }
 
-        UpdatePrice(finalValue);
+        //UpdatePrice(finalValue);
     }
 
     // Update is called once per frame

@@ -88,26 +88,33 @@ public abstract class Town : MonoBehaviour
         return supplyDic;
     }
 
-    protected void balanceSupply(Town[] netWork)
+    protected void balanceSupply(Town[] netWork, CommoditiesNames name)
     {
-        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
-        {
-            this.Restock();
+        this.Restock();
             //balance each commodity based on relative locations
-            float changePercentage = 0.95f;
-            for (int i = 0; i < netWork.Length; i++)
+        float changePercentage = 0.95f;
+        for (int i = 0; i < netWork.Length; i++)
+        {
+            netWork[i].Restock();
+            if (netWork[i].supplyList[name] > supplyList[name])
             {
-                netWork[i].Restock();
-                if (netWork[i].supplyList[name] > supplyList[name])
-                {
-                    int changeAmount = (int)(changePercentage * supplyList[name]);
-                    supplyList[name] += netWork[i].supplyList[name] - changeAmount;
-                    netWork[i].supplyList[name] = changeAmount;
-                }
-                changePercentage -= 0.25f;
+                int changeAmount = (int)(changePercentage * supplyList[name]);
+                supplyList[name] += netWork[i].supplyList[name] - changeAmount;
+                netWork[i].supplyList[name] = changeAmount;
             }
+            changePercentage -= 0.25f;
         }
     }
+
+    protected void decreaseSupply(Town[] netWork, CommoditiesNames name)
+    {
+        this.supplyList[name] = (int)((Mathf.Round(UnityEngine.Random.Range(-10.0f, 10.0f) * 100f) / 100f) * this.supplyList[name]);
+        for (int i = 0; i < netWork.Length; i++)
+        {
+            netWork[i].supplyList[name] = (int)((Mathf.Round(UnityEngine.Random.Range(-10.0f, 10.0f) * 100f) / 100f) * netWork[i].supplyList[name]);
+        }
+    }
+
 
     protected abstract void Restock();
     protected abstract Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList);
