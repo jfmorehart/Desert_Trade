@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Town : MonoBehaviour
 {
+    public TMP_Text display;
     public Town[] netWork;
     public enum CommoditiesNames
     {
