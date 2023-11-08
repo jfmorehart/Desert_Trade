@@ -15,3 +15,5 @@ MonoBehaviour:
   townExportFrom: Cave
   commodityName: Pot
   commodityBasePrice: 75
+  commodityMaxPrice: 375
+  commodityMinPrice: 1

@@ -15,3 +15,5 @@ MonoBehaviour:
   townExportFrom: Hub
   commodityName: Silk
   commodityBasePrice: 100
+  commodityMaxPrice: 500
+  commodityMinPrice: 1

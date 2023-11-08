@@ -15,3 +15,5 @@ MonoBehaviour:
   townExportFrom: Underground
   commodityName: Copper
   commodityBasePrice: 50
+  commodityMaxPrice: 250
+  commodityMinPrice: 1
