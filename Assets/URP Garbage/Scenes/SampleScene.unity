@@ -486,13 +486,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f3f4085688a48bba7447c54d646473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6883004980125057911}
+  target: {fileID: 0}
   followDist: 0.3
   accel: 6
   drag: 1
   velocity: {x: 0, y: 0}
   Rasterize: {fileID: 7200000, guid: e91e35db6ca7b4846a73bb9dc478b4a2, type: 3}
   ras_scale: 5
+  followY: 0
+  stationaryDragMult: 1
+  lockTo: 0
 --- !u!1 &403185764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,7 +1765,7 @@ PrefabInstance:
     - target: {fileID: 4700375560295448664, guid: c202fa9e9fea34dc09dbd1bd75d437ac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2290092
+      value: 7.29
       objectReference: {fileID: 0}
     - target: {fileID: 4700375560295448664, guid: c202fa9e9fea34dc09dbd1bd75d437ac,
         type: 3}
@@ -1887,12 +1890,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7edbc0a1f984416a5322f18f325d33, type: 3}
---- !u!4 &6883004980125057911 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4591082408184190922, guid: 0c47e6f52dd574d418a1c3166f332828,
-    type: 3}
-  m_PrefabInstance: {fileID: 8467190901530413999}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6883004980125057915 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1270765699934315481, guid: 0c47e6f52dd574d418a1c3166f332828,
@@ -1926,7 +1923,12 @@ PrefabInstance:
     - target: {fileID: 2937768394021763241, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
       propertyPath: meleeKey
-      value: 113
+      value: 106
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937768394021763241, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: throwKey
+      value: 108
       objectReference: {fileID: 0}
     - target: {fileID: 4591082408184190922, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}

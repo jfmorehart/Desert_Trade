@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/URP Garbage/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/URP Garbage/Scenes/Map.unity
+    guid: ee3e4b468c43a44ee94184cf87e97cc0
   m_configObjects: {}

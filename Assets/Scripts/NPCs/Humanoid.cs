@@ -53,7 +53,7 @@ public class Humanoid : MonoBehaviour, IDamageable
 
     public virtual void Hit(int dmg, Vector2 thru, Team responsible) {
 		hp.Damage(dmg);
-		rb.AddForce(1000 * dmg * thru);
+		rb.AddForce(5000 * dmg * thru);
 	}
 	public virtual void Kill()
 	{
