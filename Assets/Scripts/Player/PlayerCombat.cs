@@ -46,6 +46,14 @@ public class PlayerCombat : MonoBehaviour
 		//Figure out direction
 		int dir = pmov.isFacingRight? 1 : -1;
 
+		Vector2 mvm;
+
+		//Get player wasd input
+		mvm.x = Input.GetAxisRaw("Horizontal");
+		mvm.y = Input.GetAxisRaw("Vertical");
+
+
+
 		// Flip throw vector as required
 		Vector3 throwOff = new Vector2(throwPoint.localPosition.x * dir, throwPoint.localPosition.y);
 
@@ -55,7 +63,7 @@ public class PlayerCombat : MonoBehaviour
 		Quaternion.identity);
 
 		// Tell the sword which way to go
-		g.GetComponent<Throwable>().Throw(Vector3.right * dir, pmov.team);
+		g.GetComponent<Throwable>().Throw(mvm.normalized, pmov.team);
 	
     }
 }

@@ -26,6 +26,10 @@ public class PlayerMovement : Humanoid
 	public float mov_accel_sprint;
 	bool sprinting;
 
+	[Header("Enter Town")]
+	public KeyCode enterKey;
+	Transform icontrigger;
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -55,6 +59,12 @@ public class PlayerMovement : Humanoid
 		if (Input.GetKeyDown(dash))
 		{
 			Dash(mvm);
+		}
+
+		//Town Trigger Logic
+		if (Input.GetKeyDown(enterKey) && icontrigger != null)
+		{
+			icontrigger.GetComponent<IconTrigger>().Load();
 		}
 	}
 
@@ -93,5 +103,20 @@ public class PlayerMovement : Humanoid
 			}
 		}
     }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.CompareTag("MapTown")){
+			icontrigger = collision.transform;
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.CompareTag("MapTown"))
+		{
+			icontrigger = null;
+		}
+	}
 }
 
