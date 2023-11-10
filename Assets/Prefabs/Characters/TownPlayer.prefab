@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4532453072934853891}
   - component: {fileID: 1887757062235488825}
   m_Layer: 0
-  m_Name: Player
+  m_Name: TownPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,11 +138,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3897d74c06c64a798394cb4f8319103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultRight: 0
   team: 1
   hp: {fileID: 4449692650894393228}
   isFacingRight: 1
   isMoving: 0
   movement_locked: 0
+  anim: {fileID: 4532453072934853891}
   dash: 0
   mov_accel: 0.1
   mov_maxSpeed: 2
@@ -160,7 +162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254425026246268706}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cee3f8cda1d4440768955c76e502b1ad, type: 3}
   m_Name: 
@@ -172,6 +174,7 @@ MonoBehaviour:
   throwable: {fileID: 5229009580439373067, guid: 1514088b8417d4401916f89a919f8973,
     type: 3}
   throwReload: 0.5
+  anim: {fileID: 4532453072934853891}
 --- !u!61 &1331516492101389708
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -208,7 +211,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5666668, y: 2.5666668}
+    oldSize: {x: 0.955, y: 2.3633332}
     newSize: {x: 7.7, y: 7.7}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -254,7 +257,7 @@ Animator:
   m_GameObject: {fileID: 1254425026246268706}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 65d5fabb984644ed4b2c70a4d56c0f3b, type: 2}
+  m_Controller: {fileID: 9100000, guid: f862947e660c746a7a4ccf5ee99f3725, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -306,7 +309,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1164968176, guid: a6d6585eecdb24af39a668bcbd1adf87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04a7b3b3cd29e47bda3a5f4bf488360d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -511,7 +514,7 @@ Transform:
   m_GameObject: {fileID: 9066895039244158954}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.638, y: 0.257, z: 0}
+  m_LocalPosition: {x: 0.762, y: 0.257, z: 0}
   m_LocalScale: {x: 0.080761, y: 0.080761, z: 0.080761}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -590,7 +593,7 @@ PrefabInstance:
     - target: {fileID: 1911801639302207778, guid: b27e32de1b14441a3aa29ca89a4c75e9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5500002
+      value: -0.597
       objectReference: {fileID: 0}
     - target: {fileID: 1911801639302207778, guid: b27e32de1b14441a3aa29ca89a4c75e9,
         type: 3}

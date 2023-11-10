@@ -26,7 +26,6 @@ public static class ScenesStatic
 
     public static bool OnMap() {
 
-        //Just TRY understanding this one lmao
         return (SceneManager.GetActiveScene().buildIndex == enumToBuildNum[(int)Name.Map]); 
     }
 

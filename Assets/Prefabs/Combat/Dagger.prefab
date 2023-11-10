@@ -50,6 +50,7 @@ MonoBehaviour:
   damage: 5
   attackDuration: 0.3
   attackCooldown: 1
+  killDelay: 0.5
 --- !u!33 &5945213798202661186
 MeshFilter:
   m_ObjectHideFlags: 0

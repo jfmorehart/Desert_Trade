@@ -17,6 +17,8 @@ public class PlayerCombat : MonoBehaviour
 
 	PlayerMovement pmov;
 
+	public Animator anim;
+
 	private void Awake()
 	{
 		pmov = GetComponent<PlayerMovement>();
@@ -31,6 +33,18 @@ public class PlayerCombat : MonoBehaviour
 		if (Input.GetKeyDown(meleeKey))
 		{
 			weapon.TryStab();
+			if (anim != null)
+			{
+				Invoke(nameof(EndStab), weapon.attackDuration + weapon.killDelay);
+				anim.SetBool("swinging", true);
+			}
+		}
+	}
+
+	public void EndStab() {
+		if (anim != null)
+		{
+			anim.SetBool("swinging", false);
 		}
 	}
 
