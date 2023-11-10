@@ -13,8 +13,6 @@ public class CaveTown : Town
     }
     private int stabilizer = 99;
 
-
-    //supplies for the locally produced products are always max
     protected override void Restock()
     {
         supplyList[CommoditiesNames.Jewelry] = (supplyList[CommoditiesNames.Jewelry] > supplyInitialValue) ? supplyList[CommoditiesNames.Jewelry] : supplyInitialValue;
@@ -22,9 +20,9 @@ public class CaveTown : Town
         supplyList[CommoditiesNames.Pot] = (supplyList[CommoditiesNames.Pot] > supplyInitialValue) ? supplyList[CommoditiesNames.Pot] : supplyInitialValue;
     }
 
-
     protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
     {
+        balanceSupply(netWork);
 
         //supply for others decrease over time
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
@@ -33,10 +31,10 @@ public class CaveTown : Town
             {
                 demandList[name] = 1;
             }
-            decreaseSupply(netWork, name);
-            balanceSupply(netWork, name);
+            
+
             priceList[name] = Mathf.Clamp(commoditiesPrice[name][0] * (demandList[name] + stabilizer) / (supplyList[name] + stabilizer), commoditiesPrice[name][2], commoditiesPrice[name][1]);
-            //print(name + " cave " + priceList[name]);
+            print(name + " " + priceList[name]);
         }
         return priceList;
     }
@@ -46,25 +44,22 @@ public class CaveTown : Town
     {
         commoditiesPrice = PopulatePrice(commoditiesPrice);
         demandList = PopulateDemand(demandList);
-        supplyList = PopulateSupply(supplyList);
+        supplyList = PopulateDemand(supplyList);
 
+        demandList[CommoditiesNames.Jewelry] = 1;
+        demandList[CommoditiesNames.Dagger] = 1;
+        demandList[CommoditiesNames.Pot] = 1;
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
             finalValue.Add(name, commoditiesPrice[name][0]);
         }
-        //UseUpdatePrice();
-        //UpdatePrice(finalValue);
+
+        UpdatePrice(finalValue);
     }
 
-    //public void UseUpdatePrice()
-    //{
-    //    display.text = "";
-    //    foreach (var k in UpdatePrice(finalValue))
-    //    {
-    //        CommoditiesNames key = k.Key;
-    //        int value = k.Value;
-    //        display.text += ("Key: " + key + ", Value: " + value + " \n");
-    //    }
-    //}
-
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

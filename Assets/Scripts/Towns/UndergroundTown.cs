@@ -21,14 +21,14 @@ public class UndergroundTown : Town
 
     protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
     {
+        balanceSupply(netWork);
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
             if (name == CommoditiesNames.Gold || name == CommoditiesNames.Copper || name == CommoditiesNames.Coal)
             {
                 demandList[name] = 1;
             }
-            decreaseSupply(netWork, name);
-            balanceSupply(netWork, name);
+
             priceList[name] = Mathf.Clamp(commoditiesPrice[name][0] * (demandList[name] + stabilizer) / (supplyList[name] + stabilizer), commoditiesPrice[name][2], commoditiesPrice[name][1]);
             print(name + " " + priceList[name]);
         }
@@ -40,25 +40,22 @@ public class UndergroundTown : Town
     {
         commoditiesPrice = PopulatePrice(commoditiesPrice);
         demandList = PopulateDemand(demandList);
-        supplyList = PopulateSupply(supplyList);
+        supplyList = PopulateDemand(supplyList);
 
+        demandList[CommoditiesNames.Gold] = 1;
+        demandList[CommoditiesNames.Copper] = 1;
+        demandList[CommoditiesNames.Coal] = 1;
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
             finalValue.Add(name, commoditiesPrice[name][0]);
         }
 
-        //UpdatePrice(finalValue);
-        //UseUpdatePrice(); 
+        UpdatePrice(finalValue);
     }
-    //public void UseUpdatePrice()
-    //{
-    //    display.text = "";
-    //    foreach (var k in UpdatePrice(finalValue))
-    //    {
-    //        CommoditiesNames key = k.Key;
-    //        int value = k.Value;
-            
-    //        display.text += ("Key: " + key + ", Value: " + value + " \n");
-    //    }
-    //}
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

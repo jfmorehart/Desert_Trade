@@ -22,16 +22,16 @@ public class Cultural : Town
 
     protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
     {
+        balanceSupply(netWork);
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
             if (name == CommoditiesNames.Myrrh || name == CommoditiesNames.Silk || name == CommoditiesNames.Textile)
             {
                 demandList[name] = 1;
             }
-            decreaseSupply(netWork, name);
-            balanceSupply(netWork, name);
+            
             priceList[name] = Mathf.Clamp(commoditiesPrice[name][0] * (demandList[name] + stabilizer) / (supplyList[name] + stabilizer), commoditiesPrice[name][2], commoditiesPrice[name][1]);
-            //print(name + " " + priceList[name]);
+            print(name + " " + priceList[name]);
         }
         return priceList;
     }
@@ -41,27 +41,22 @@ public class Cultural : Town
     {
         commoditiesPrice = PopulatePrice(commoditiesPrice);
         demandList = PopulateDemand(demandList);
-        supplyList = PopulateSupply(supplyList);
+        supplyList = PopulateDemand(supplyList);
 
+        demandList[CommoditiesNames.Myrrh] = 1;
+        demandList[CommoditiesNames.Silk] = 1;
+        demandList[CommoditiesNames.Textile] = 1;
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
             finalValue.Add(name, commoditiesPrice[name][0]);
         }
 
-        //UseUpdatePrice();
-        //UpdatePrice(finalValue);
+        UpdatePrice(finalValue);
     }
 
-    //public void UseUpdatePrice(GameObject townName)
-    //{
-    //    display.text = "";
-    //    foreach (var k in UpdatePrice(finalValue))
-    //    {
-    //        CommoditiesNames key = k.Key;
-    //        int value = k.Value;
-            
-    //        display.text += ( key + ": Value: " + value + " \n");
-    //    }
-    //}
-
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

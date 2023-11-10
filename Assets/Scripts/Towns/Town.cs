@@ -2,14 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class Town : MonoBehaviour
 {
-    public TMP_Text display;
     public Town[] netWork;
     public enum CommoditiesNames
     {
@@ -91,43 +88,24 @@ public abstract class Town : MonoBehaviour
         return supplyDic;
     }
 
-    protected void balanceSupply(Town[] netWork, CommoditiesNames name)
+    protected void balanceSupply(Town[] netWork)
     {
-        this.Restock();
+        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
+        {
+            this.Restock();
             //balance each commodity based on relative locations
-        float changePercentage = 0.95f;
-        for (int i = 0; i < netWork.Length; i++)
-        {
-            netWork[i].Restock();
-            if (netWork[i].supplyList[name] > supplyList[name])
+            float changePercentage = 0.95f;
+            for (int i = 0; i < netWork.Length; i++)
             {
-                int changeAmount = (int)(changePercentage * supplyList[name]);
-                supplyList[name] += netWork[i].supplyList[name] - changeAmount;
-                netWork[i].supplyList[name] = changeAmount;
+                netWork[i].Restock();
+                if (netWork[i].supplyList[name] > supplyList[name])
+                {
+                    int changeAmount = (int)(changePercentage * supplyList[name]);
+                    supplyList[name] += netWork[i].supplyList[name] - changeAmount;
+                    netWork[i].supplyList[name] = changeAmount;
+                }
+                changePercentage -= 0.25f;
             }
-            changePercentage -= 0.25f;
-        }
-    }
-
-    protected void decreaseSupply(Town[] netWork, CommoditiesNames name)
-    {
-        int changeInSupply = (int)((Mathf.Round(UnityEngine.Random.Range(0.1f, 1.0f) * 100f) / 100f) * this.supplyList[name]);
-        this.supplyList[name] = changeInSupply;
-        for (int i = 0; i < netWork.Length; i++)
-        {
-            netWork[i].supplyList[name] = (int)((Mathf.Round(UnityEngine.Random.Range(0.1f, 1.0f) * 100f) / 100f) * netWork[i].supplyList[name]);
-        }
-    }
-
-    public void UseUpdatePrice(Town townName)
-    {
-        display.text = "";
-        foreach (var k in UpdatePrice(townName.finalValue))
-        {
-            CommoditiesNames key = k.Key;
-            int value = k.Value;
-
-            display.text += (key + " Value: " + value + " \n");
         }
     }
 
