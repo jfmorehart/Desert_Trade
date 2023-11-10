@@ -26,12 +26,16 @@ public class PlayerMovement : Humanoid
 	public float mov_accel_sprint;
 	bool sprinting;
 
+
 	[Header("Enter Town")]
 	public KeyCode enterKey;
 	Transform icontrigger;
 
-	protected override void Awake()
+
+
+    protected override void Awake()
 	{
+
 		base.Awake();
 
 		if (ScenesStatic.OnMap()) {
@@ -99,9 +103,12 @@ public class PlayerMovement : Humanoid
 	void DirectionalLogic(float mx) {
 
 		//Handle direction stuff
-
-		if (Mathf.Abs(mx) < 0.1f) return;
-
+		StartMoving();
+		if (Mathf.Abs(mx) < 0.1f)
+		{
+			StopMoving();
+			return;
+		}
 		if(mx > 0) {
 			if (!isFacingRight) {
 				FaceDir(true);
@@ -129,6 +136,7 @@ public class PlayerMovement : Humanoid
 			icontrigger = null;
 		}
 	}
+
 
 	public override void Kill()
 	{

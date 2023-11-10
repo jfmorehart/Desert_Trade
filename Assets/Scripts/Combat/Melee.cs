@@ -14,7 +14,10 @@ public class Melee : MonoBehaviour
 	public int damage;
 	public float attackDuration;
 	public float attackCooldown;
+	public float killDelay;
 	float lastAttack; // for timer
+
+	bool ownedByPlayer;
 
 	private void Awake()
 	{
@@ -31,7 +34,7 @@ public class Melee : MonoBehaviour
 	public bool TryStab() { 
 
 		if(Time.time - lastAttack > attackCooldown) {
-			Stab();
+			Invoke(nameof(Stab), killDelay);
 			lastAttack = Time.time;
 			return true;
 		}
@@ -41,7 +44,7 @@ public class Melee : MonoBehaviour
 	//What executes the attack
 	void Stab()
 	{
-		ren.enabled = true;
+		ren.enabled = false;
 		col.enabled = true;
 
 		Invoke(nameof(HideKillBox), attackDuration);
@@ -68,6 +71,5 @@ public class Melee : MonoBehaviour
 		{
 			idintr.Hit(damage, collision.transform.position - transform.position, team);
 		}
-
 	}
 }
