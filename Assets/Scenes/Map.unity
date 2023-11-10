@@ -295,12 +295,12 @@ PrefabInstance:
     - target: {fileID: 4591082408184190922, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.97
+      value: -18.279999
       objectReference: {fileID: 0}
     - target: {fileID: 4591082408184190922, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.48
+      value: 17.760002
       objectReference: {fileID: 0}
     - target: {fileID: 4591082408184190922, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
@@ -633,7 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a4ee97f36a44e4c8169558c95a8fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTown: 1
+  myTown: 2
 --- !u!33 &368775272
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -955,7 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a4ee97f36a44e4c8169558c95a8fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTown: 2
+  myTown: 3
 --- !u!1 &842596062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1150,7 @@ Transform:
   m_GameObject: {fileID: 1078203325}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.79, y: -24.54, z: -10}
+  m_LocalPosition: {x: -18.1, y: 17.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1537,7 +1537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a4ee97f36a44e4c8169558c95a8fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTown: 0
+  myTown: 1
 --- !u!33 &1860680363
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1656,5 +1656,5 @@ SceneRoots:
   - {fileID: 1370961684}
   - {fileID: 520241169}
   - {fileID: 734685696}
-  - {fileID: 1860680364}
   - {fileID: 368775273}
+  - {fileID: 1860680364}

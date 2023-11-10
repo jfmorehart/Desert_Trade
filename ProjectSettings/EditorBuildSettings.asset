@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/URP Garbage/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/URP Garbage/Scenes/Map.unity
+    path: Assets/Scenes/Map.unity
     guid: ee3e4b468c43a44ee94184cf87e97cc0
+  - enabled: 1
+    path: Assets/Scenes/CaveTown.unity
+    guid: 530c3effd58c94c70815638540086513
+  - enabled: 1
+    path: Assets/Scenes/OasisTown.unity
+    guid: afaf0c495c4684b65bd08589698bffc0
+  - enabled: 1
+    path: Assets/Scenes/CityTown.unity
+    guid: e7c0afc73f3a542988f2e9344dde7ffe
+  - enabled: 0
+    path: Assets/Scenes/TestTown.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects: {}
