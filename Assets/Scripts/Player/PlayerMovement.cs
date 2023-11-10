@@ -58,6 +58,9 @@ public class PlayerMovement : Humanoid
 		mvm.x = Input.GetAxisRaw("Horizontal");
 		mvm.y = Input.GetAxisRaw("Vertical");
 
+		if(mvm.magnitude > 0.1) {
+			StartMoving();
+		}
 		DirectionalLogic(mvm.x);
 
 		//Accelerate player in direction of wasd
@@ -103,7 +106,7 @@ public class PlayerMovement : Humanoid
 	void DirectionalLogic(float mx) {
 
 		//Handle direction stuff
-		StartMoving();
+
 		if (Mathf.Abs(mx) < 0.1f)
 		{
 			StopMoving();
