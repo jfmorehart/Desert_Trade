@@ -11,23 +11,35 @@ public abstract class Town : MonoBehaviour
 {
     public TMP_Text display;
     public Town[] netWork;
+    //public enum CommoditiesNames
+    //{
+    //    Dates,
+    //    Water,
+    //    Cotton,
+    //    Jewelry,
+    //    Dagger,
+    //    Pot,
+    //    Gold,
+    //    Copper,
+    //    Coal,
+    //    Myrrh,
+    //    Silk,
+    //    Textile
+    //}
+
     public enum CommoditiesNames
     {
         Dates,
-        Water,
         Cotton,
         Jewelry,
         Dagger,
-        Pot,
         Gold,
         Copper,
-        Coal,
         Myrrh,
         Silk,
-        Textile
     }
 
-    
+
     private Inventory inventoryData;
     //public TradeItems[] commodities;
 
@@ -59,17 +71,17 @@ public abstract class Town : MonoBehaviour
         int[] SilkP = { inventoryData.items[10].commodityBasePrice, inventoryData.items[10].commodityMaxPrice, inventoryData.items[10].commodityMinPrice };
         int[] TextileP = { inventoryData.items[11].commodityBasePrice, inventoryData.items[11].commodityMaxPrice, inventoryData.items[11].commodityMinPrice };
         priceDic.Add(CommoditiesNames.Dates, datesP);
-        priceDic.Add(CommoditiesNames.Water, waterP);
+        //priceDic.Add(CommoditiesNames.Water, waterP);
         priceDic.Add(CommoditiesNames.Cotton, cottonP);
         priceDic.Add(CommoditiesNames.Jewelry, JewelryP);
         priceDic.Add(CommoditiesNames.Dagger, DaggerP);
-        priceDic.Add(CommoditiesNames.Pot, PotP);
+        //priceDic.Add(CommoditiesNames.Pot, PotP);
         priceDic.Add(CommoditiesNames.Gold, GoldP);
         priceDic.Add(CommoditiesNames.Copper, CopperP);
-        priceDic.Add(CommoditiesNames.Coal, CoalP);
+        //priceDic.Add(CommoditiesNames.Coal, CoalP);
         priceDic.Add(CommoditiesNames.Myrrh, MyrrhP);
         priceDic.Add(CommoditiesNames.Silk, SilkP);
-        priceDic.Add(CommoditiesNames.Textile, TextileP);
+        //priceDic.Add(CommoditiesNames.Textile, TextileP);
         return priceDic;
     }
 
@@ -128,6 +140,19 @@ public abstract class Town : MonoBehaviour
             int value = k.Value;
 
             display.text += (key + " Value: " + value + " \n");
+        }
+    }
+
+
+    public void Start()
+    {
+        commoditiesPrice = PopulatePrice(commoditiesPrice);
+        demandList = PopulateDemand(demandList);
+        supplyList = PopulateSupply(supplyList);
+
+        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
+        {
+            finalValue.Add(name, commoditiesPrice[name][0]);
         }
     }
 

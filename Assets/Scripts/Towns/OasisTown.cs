@@ -9,8 +9,7 @@ public class OasisTown : Town
     public enum OasisCommoditiesNames
     {
         Dates,
-        Water,
-        Cotton,
+        Cotton
     }
 
     private int stabilizer = 99;
@@ -18,7 +17,7 @@ public class OasisTown : Town
     protected override void Restock()
     {
         supplyList[CommoditiesNames.Dates] = (supplyList[CommoditiesNames.Dates] > supplyInitialValue) ? supplyList[CommoditiesNames.Dates] : supplyInitialValue;
-        supplyList[CommoditiesNames.Water] = (supplyList[CommoditiesNames.Water] > supplyInitialValue) ? supplyList[CommoditiesNames.Water] : supplyInitialValue;
+        //supplyList[CommoditiesNames.Water] = (supplyList[CommoditiesNames.Water] > supplyInitialValue) ? supplyList[CommoditiesNames.Water] : supplyInitialValue;
         supplyList[CommoditiesNames.Cotton] = (supplyList[CommoditiesNames.Cotton] > supplyInitialValue) ? supplyList[CommoditiesNames.Cotton] : supplyInitialValue;
     }
 
@@ -27,9 +26,13 @@ public class OasisTown : Town
         //supply for others decrease over time
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
-            if (name == CommoditiesNames.Dates || name == CommoditiesNames.Water || name == CommoditiesNames.Cotton)
+            if (name == CommoditiesNames.Dates || name == CommoditiesNames.Cotton)
             {
                 demandList[name] = 1;
+            }
+            else
+            {
+                demandList[name] = demandInitialValue;
             }
             decreaseSupply(netWork, name);
             balanceSupply(netWork, name);
@@ -40,29 +43,5 @@ public class OasisTown : Town
         return priceList;
     }
 
-    void Start()
-    {
-        commoditiesPrice = PopulatePrice(commoditiesPrice);
-        demandList = PopulateDemand(demandList);
-        supplyList = PopulateSupply(supplyList);
-        //initialize finalValue dictionary
-        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
-        {
-            finalValue.Add(name, commoditiesPrice[name][0]);
-        }
-        //UseUpdatePrice();
-        //UpdatePrice(finalValue);
-    }
-
-    //public void UseUpdatePrice()
-    //{
-    //    display.text = "";
-    //    foreach (var k in UpdatePrice(finalValue))
-    //    {
-    //        CommoditiesNames key = k.Key;
-    //        int value = k.Value;
-    //        display.text += ("Key: " + key + ", Value: " + value + " \n");
-    //    }
-    //}
 
 }
