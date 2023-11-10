@@ -2,44 +2,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class Town : MonoBehaviour
 {
-    public TMP_Text display;
     public Town[] netWork;
-    //public enum CommoditiesNames
-    //{
-    //    Dates,
-    //    Water,
-    //    Cotton,
-    //    Jewelry,
-    //    Dagger,
-    //    Pot,
-    //    Gold,
-    //    Copper,
-    //    Coal,
-    //    Myrrh,
-    //    Silk,
-    //    Textile
-    //}
-
     public enum CommoditiesNames
     {
         Dates,
+        Water,
         Cotton,
         Jewelry,
         Dagger,
+        Pot,
         Gold,
         Copper,
+        Coal,
         Myrrh,
         Silk,
+        Textile
     }
 
-
+    
     private Inventory inventoryData;
     //public TradeItems[] commodities;
 
@@ -71,17 +56,17 @@ public abstract class Town : MonoBehaviour
         int[] SilkP = { inventoryData.items[10].commodityBasePrice, inventoryData.items[10].commodityMaxPrice, inventoryData.items[10].commodityMinPrice };
         int[] TextileP = { inventoryData.items[11].commodityBasePrice, inventoryData.items[11].commodityMaxPrice, inventoryData.items[11].commodityMinPrice };
         priceDic.Add(CommoditiesNames.Dates, datesP);
-        //priceDic.Add(CommoditiesNames.Water, waterP);
+        priceDic.Add(CommoditiesNames.Water, waterP);
         priceDic.Add(CommoditiesNames.Cotton, cottonP);
         priceDic.Add(CommoditiesNames.Jewelry, JewelryP);
         priceDic.Add(CommoditiesNames.Dagger, DaggerP);
-        //priceDic.Add(CommoditiesNames.Pot, PotP);
+        priceDic.Add(CommoditiesNames.Pot, PotP);
         priceDic.Add(CommoditiesNames.Gold, GoldP);
         priceDic.Add(CommoditiesNames.Copper, CopperP);
-        //priceDic.Add(CommoditiesNames.Coal, CoalP);
+        priceDic.Add(CommoditiesNames.Coal, CoalP);
         priceDic.Add(CommoditiesNames.Myrrh, MyrrhP);
         priceDic.Add(CommoditiesNames.Silk, SilkP);
-        //priceDic.Add(CommoditiesNames.Textile, TextileP);
+        priceDic.Add(CommoditiesNames.Textile, TextileP);
         return priceDic;
     }
 
@@ -103,56 +88,24 @@ public abstract class Town : MonoBehaviour
         return supplyDic;
     }
 
-    protected void balanceSupply(Town[] netWork, CommoditiesNames name)
+    protected void balanceSupply(Town[] netWork)
     {
-        this.Restock();
-            //balance each commodity based on relative locations
-        float changePercentage = 0.95f;
-        for (int i = 0; i < netWork.Length; i++)
-        {
-            netWork[i].Restock();
-            if (netWork[i].supplyList[name] > supplyList[name])
-            {
-                int changeAmount = (int)(changePercentage * supplyList[name]);
-                supplyList[name] += netWork[i].supplyList[name] - changeAmount;
-                netWork[i].supplyList[name] = changeAmount;
-            }
-            changePercentage -= 0.25f;
-        }
-    }
-
-    protected void decreaseSupply(Town[] netWork, CommoditiesNames name)
-    {
-        int changeInSupply = (int)((Mathf.Round(UnityEngine.Random.Range(0.1f, 1.0f) * 100f) / 100f) * this.supplyList[name]);
-        this.supplyList[name] = changeInSupply;
-        for (int i = 0; i < netWork.Length; i++)
-        {
-            netWork[i].supplyList[name] = (int)((Mathf.Round(UnityEngine.Random.Range(0.1f, 1.0f) * 100f) / 100f) * netWork[i].supplyList[name]);
-        }
-    }
-
-    public void UseUpdatePrice(Town townName)
-    {
-        display.text = "";
-        foreach (var k in UpdatePrice(townName.finalValue))
-        {
-            CommoditiesNames key = k.Key;
-            int value = k.Value;
-
-            display.text += (key + " Value: " + value + " \n");
-        }
-    }
-
-
-    public void Start()
-    {
-        commoditiesPrice = PopulatePrice(commoditiesPrice);
-        demandList = PopulateDemand(demandList);
-        supplyList = PopulateSupply(supplyList);
-
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
-            finalValue.Add(name, commoditiesPrice[name][0]);
+            this.Restock();
+            //balance each commodity based on relative locations
+            float changePercentage = 0.95f;
+            for (int i = 0; i < netWork.Length; i++)
+            {
+                netWork[i].Restock();
+                if (netWork[i].supplyList[name] > supplyList[name])
+                {
+                    int changeAmount = (int)(changePercentage * supplyList[name]);
+                    supplyList[name] += netWork[i].supplyList[name] - changeAmount;
+                    netWork[i].supplyList[name] = changeAmount;
+                }
+                changePercentage -= 0.25f;
+            }
         }
     }
 

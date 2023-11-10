@@ -16,31 +16,17 @@ public class SceneCam : MonoBehaviour
 	public ComputeShader Rasterize;
 	public float ras_scale;
 
-	public bool followY;
-	public float stationaryDragMult = 1;
-
-	public bool lockTo;
 
 	private void Update()
 	{
-		if (target == null) return;
-
 		Vector2 delta = target.position - transform.position;
-
-
-		if (lockTo) {
-			transform.position = new Vector3(target.position.x, target.position.y, -10);
-		}
-
-		if (!followY) {
-			delta.y = 0;
-		}
+		delta.y = 0;
 
 		if(delta.magnitude > followDist) { 
 			velocity += accel * Time.deltaTime * delta.normalized;
 		}
 		else {
-			velocity *= 0.98f - Time.deltaTime * drag * stationaryDragMult;
+			velocity *= 0.98f - Time.deltaTime * drag;
 		}
 		velocity *= 1 - Time.deltaTime * drag;
 
