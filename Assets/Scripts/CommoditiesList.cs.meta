@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/CommoditiesList.cs.meta
+guid: f43c7b00edafc49faa6a604c53f2b05c
+========
+guid: 6bd53e1ac0f6a451783c749362410da0
+>>>>>>>> main:Assets/Scripts/PlayerMovement.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -107,7 +107,7 @@ MonoBehaviour:
   isFacingRight: 1
   isMoving: 0
   movement_locked: 0
-  visionRadius: 6
+  visionRadius: 20
   mov_speed: 6
   dest: {x: 0, y: 0, z: 0}
   stopDist: 1

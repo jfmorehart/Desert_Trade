@@ -43,6 +43,7 @@ public class NPC : Humanoid
 	    }
 
 		rb.velocity = Vector2.ClampMagnitude(rb.velocity, mov_speed);
+		delta.y *= 0.1f; // to slow merging
 		rb.velocity += mov_speed * Time.deltaTime * delta.normalized;
 
 		if (delta.x > 0)
