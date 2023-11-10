@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : Humanoid
 {
@@ -11,7 +12,6 @@ public class PlayerMovement : Humanoid
 	public float mov_accel;
 	public float mov_maxSpeed;
 	public float mov_decay;
-
 
 	//Dashing (direct jump between positions)
 	[Header("Dashing")]
@@ -33,6 +33,17 @@ public class PlayerMovement : Humanoid
 	protected override void Awake()
 	{
 		base.Awake();
+
+		if (ScenesStatic.OnMap()) {
+			GameObject[] spawns = GameObject.FindGameObjectsWithTag("MapTown");
+			foreach(GameObject spawn in spawns) { 
+				if(spawn.GetComponent<IconTrigger>().myTown == PlayerStatic.lastVisited) {
+					Debug.Log("found");
+					transform.position = spawn.transform.position;
+					break;
+				}
+			}
+		}
 	}
 
 	protected override void MovementUpdate()
@@ -117,6 +128,11 @@ public class PlayerMovement : Humanoid
 		{
 			icontrigger = null;
 		}
+	}
+
+	public override void Kill()
+	{
+		PlayerStatic.PlayerDeath();
 	}
 }
 

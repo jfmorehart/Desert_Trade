@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class IconTrigger : MonoBehaviour
 {
-	public MapTowns.Name myTown;
+	public ScenesStatic.Name myTown;
 
 	public void Load() {
-		MapTowns.Load(myTown);
+
+		// Only reset lastVisited if we're not the camel lol
+		if(myTown != ScenesStatic.Name.Map) {
+			PlayerStatic.lastVisited = myTown;
+		}
+
+		ScenesStatic.Load(myTown);
     }
 }
