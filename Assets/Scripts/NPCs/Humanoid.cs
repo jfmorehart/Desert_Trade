@@ -51,6 +51,7 @@ public class Humanoid : MonoBehaviour, IDamageable
 	//In case animation needs these functions later
 	public virtual void StartMoving() {
 		isMoving = true;
+
 		if(anim != null) {
 			anim.SetBool("moving", true);
 		}
@@ -59,6 +60,7 @@ public class Humanoid : MonoBehaviour, IDamageable
 
 	public virtual void StopMoving() {
 		isMoving = false;
+
 		if (anim != null)
 		{
 			anim.SetBool("moving", false);
@@ -69,7 +71,10 @@ public class Humanoid : MonoBehaviour, IDamageable
     public virtual void Hit(int dmg, Vector2 thru, Team responsible) {
 		hp.Damage(dmg);
 		rb.AddForce(5000 * dmg * thru);
-		ren.color = flashCol;
+		if(ren != null) {
+			ren.color = flashCol;
+		}
+
 		Invoke(nameof(Unflash), flashDuration);
 	}
 	public virtual void Kill()
