@@ -8,8 +8,7 @@ public class Cultural : Town
     public enum CulturalCommoditiesNames
     {
         Myrrh,
-        Silk,
-        Textile
+        Silk
     }
     private int stabilizer = 99;
 
@@ -17,16 +16,20 @@ public class Cultural : Town
     {
         supplyList[CommoditiesNames.Myrrh] = (supplyList[CommoditiesNames.Myrrh] > supplyInitialValue) ? supplyList[CommoditiesNames.Myrrh] : supplyInitialValue;
         supplyList[CommoditiesNames.Silk] = (supplyList[CommoditiesNames.Silk] > supplyInitialValue) ? supplyList[CommoditiesNames.Silk] : supplyInitialValue;
-        supplyList[CommoditiesNames.Textile] = (supplyList[CommoditiesNames.Textile] > supplyInitialValue) ? supplyList[CommoditiesNames.Textile] : supplyInitialValue;
+        //supplyList[CommoditiesNames.Textile] = (supplyList[CommoditiesNames.Textile] > supplyInitialValue) ? supplyList[CommoditiesNames.Textile] : supplyInitialValue;
     }
 
     protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
     {
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
-            if (name == CommoditiesNames.Myrrh || name == CommoditiesNames.Silk || name == CommoditiesNames.Textile)
+            if (name == CommoditiesNames.Myrrh || name == CommoditiesNames.Silk)
             {
                 demandList[name] = 1;
+            }
+            else
+            {
+                demandList[name] = demandInitialValue;
             }
             decreaseSupply(netWork, name);
             balanceSupply(netWork, name);
@@ -36,32 +39,5 @@ public class Cultural : Town
         return priceList;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        commoditiesPrice = PopulatePrice(commoditiesPrice);
-        demandList = PopulateDemand(demandList);
-        supplyList = PopulateSupply(supplyList);
-
-        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
-        {
-            finalValue.Add(name, commoditiesPrice[name][0]);
-        }
-
-        //UseUpdatePrice();
-        //UpdatePrice(finalValue);
-    }
-
-    //public void UseUpdatePrice(GameObject townName)
-    //{
-    //    display.text = "";
-    //    foreach (var k in UpdatePrice(finalValue))
-    //    {
-    //        CommoditiesNames key = k.Key;
-    //        int value = k.Value;
-            
-    //        display.text += ( key + ": Value: " + value + " \n");
-    //    }
-    //}
 
 }

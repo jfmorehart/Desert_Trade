@@ -8,8 +8,7 @@ public class CaveTown : Town
     public enum CaveCommoditiesNames
     {
         Jewelry,
-        Dagger,
-        Pot
+        Dagger
     }
     private int stabilizer = 99;
 
@@ -19,7 +18,7 @@ public class CaveTown : Town
     {
         supplyList[CommoditiesNames.Jewelry] = (supplyList[CommoditiesNames.Jewelry] > supplyInitialValue) ? supplyList[CommoditiesNames.Jewelry] : supplyInitialValue;
         supplyList[CommoditiesNames.Dagger] = (supplyList[CommoditiesNames.Dagger] > supplyInitialValue) ? supplyList[CommoditiesNames.Dagger] : supplyInitialValue;
-        supplyList[CommoditiesNames.Pot] = (supplyList[CommoditiesNames.Pot] > supplyInitialValue) ? supplyList[CommoditiesNames.Pot] : supplyInitialValue;
+        //supplyList[CommoditiesNames.Pot] = (supplyList[CommoditiesNames.Pot] > supplyInitialValue) ? supplyList[CommoditiesNames.Pot] : supplyInitialValue;
     }
 
 
@@ -29,9 +28,13 @@ public class CaveTown : Town
         //supply for others decrease over time
         foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
         {
-            if (name == CommoditiesNames.Jewelry || name == CommoditiesNames.Dagger || name == CommoditiesNames.Pot)
+            if (name == CommoditiesNames.Jewelry || name == CommoditiesNames.Dagger)
             {
                 demandList[name] = 1;
+            }
+            else
+            {
+                demandList[name] = demandInitialValue;
             }
             decreaseSupply(netWork, name);
             balanceSupply(netWork, name);
@@ -40,31 +43,5 @@ public class CaveTown : Town
         }
         return priceList;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        commoditiesPrice = PopulatePrice(commoditiesPrice);
-        demandList = PopulateDemand(demandList);
-        supplyList = PopulateSupply(supplyList);
-
-        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
-        {
-            finalValue.Add(name, commoditiesPrice[name][0]);
-        }
-        //UseUpdatePrice();
-        //UpdatePrice(finalValue);
-    }
-
-    //public void UseUpdatePrice()
-    //{
-    //    display.text = "";
-    //    foreach (var k in UpdatePrice(finalValue))
-    //    {
-    //        CommoditiesNames key = k.Key;
-    //        int value = k.Value;
-    //        display.text += ("Key: " + key + ", Value: " + value + " \n");
-    //    }
-    //}
 
 }
