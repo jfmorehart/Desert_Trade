@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : Humanoid
 {
@@ -11,7 +12,6 @@ public class PlayerMovement : Humanoid
 	public float mov_accel;
 	public float mov_maxSpeed;
 	public float mov_decay;
-
 
 	//Dashing (direct jump between positions)
 	[Header("Dashing")]
@@ -26,9 +26,28 @@ public class PlayerMovement : Humanoid
 	public float mov_accel_sprint;
 	bool sprinting;
 
-	protected override void Awake()
+
+	[Header("Enter Town")]
+	public KeyCode enterKey;
+	Transform icontrigger;
+
+
+
+    protected override void Awake()
 	{
+
 		base.Awake();
+
+		if (ScenesStatic.OnMap()) {
+			GameObject[] spawns = GameObject.FindGameObjectsWithTag("MapTown");
+			foreach(GameObject spawn in spawns) { 
+				if(spawn.GetComponent<IconTrigger>().myTown == PlayerStatic.lastVisited) {
+					Debug.Log("found");
+					transform.position = spawn.transform.position;
+					break;
+				}
+			}
+		}
 	}
 
 	protected override void MovementUpdate()
@@ -39,6 +58,9 @@ public class PlayerMovement : Humanoid
 		mvm.x = Input.GetAxisRaw("Horizontal");
 		mvm.y = Input.GetAxisRaw("Vertical");
 
+		if(mvm.magnitude > 0.1) {
+			StartMoving();
+		}
 		DirectionalLogic(mvm.x);
 
 		//Accelerate player in direction of wasd
@@ -55,6 +77,12 @@ public class PlayerMovement : Humanoid
 		if (Input.GetKeyDown(dash))
 		{
 			Dash(mvm);
+		}
+
+		//Town Trigger Logic
+		if (Input.GetKeyDown(enterKey) && icontrigger != null)
+		{
+			icontrigger.GetComponent<IconTrigger>().Load();
 		}
 	}
 
@@ -79,8 +107,11 @@ public class PlayerMovement : Humanoid
 
 		//Handle direction stuff
 
-		if (Mathf.Abs(mx) < 0.1f) return;
-
+		if (Mathf.Abs(mx) < 0.1f)
+		{
+			StopMoving();
+			return;
+		}
 		if(mx > 0) {
 			if (!isFacingRight) {
 				FaceDir(true);
@@ -93,5 +124,26 @@ public class PlayerMovement : Humanoid
 			}
 		}
     }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.CompareTag("MapTown")){
+			icontrigger = collision.transform;
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.CompareTag("MapTown"))
+		{
+			icontrigger = null;
+		}
+	}
+
+
+	public override void Kill()
+	{
+		PlayerStatic.PlayerDeath();
+	}
 }
 

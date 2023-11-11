@@ -101,12 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1d9ea1dbc224b12b11d72b4b7e7322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultRight: 1
   team: 2
   hp: {fileID: 8174212104629863331}
   isFacingRight: 1
   isMoving: 0
   movement_locked: 0
-  visionRadius: 20
+  visionRadius: 6
   mov_speed: 6
   dest: {x: 0, y: 0, z: 0}
   stopDist: 1

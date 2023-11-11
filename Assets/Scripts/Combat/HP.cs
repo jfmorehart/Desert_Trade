@@ -51,7 +51,6 @@ public class HP : MonoBehaviour
 		float hpScale;
 		float deltaHP = (hp - lerpHP) * (1 / lerpLengthSeconds);
 
-		hren.enabled = true;
 		for (int i = 0; i < 500; i++)
 		{
 			hpScale = lerpHP / hp_max;
