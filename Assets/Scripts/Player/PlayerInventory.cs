@@ -17,8 +17,25 @@ public class PlayerInventory : MonoBehaviour
         Silk
     }
 
+    [Serializable]
+    public enum TownNames
+    {
+    Oasis,
+    Underground,
+    Cave,
+    Cultural
+    }
+
     public int playerMoney;
+
+    public TownNames currentTown;
     public Dictionary<CommoditiesNames, int> playerBag = new Dictionary<CommoditiesNames, int>();
+
+
+    public void updateTown(string name)
+    {
+        currentTown = (TownNames)Enum.Parse(typeof(TownNames), name);
+    }
 
 
     // Start is called before the first frame update
@@ -36,6 +53,8 @@ public class PlayerInventory : MonoBehaviour
     {
         
     }
+
+
 
 
 }
