@@ -20,6 +20,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1270765699934315481, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
+      propertyPath: regCol.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270765699934315481, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: regCol.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270765699934315481, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: regCol.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270765699934315481, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: regCol.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270765699934315481, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: mov_accel
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270765699934315481, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
       propertyPath: flashCol.a
       value: 1
       objectReference: {fileID: 0}

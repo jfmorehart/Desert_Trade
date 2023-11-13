@@ -64,7 +64,7 @@ public class PlayerMovement : Humanoid
 		DirectionalLogic(mvm.x);
 
 		//Accelerate player in direction of wasd
-		rb.velocity+= (sprinting ? mov_accel_sprint : mov_accel) * Time.time * mvm.normalized;
+		rb.velocity += (sprinting ? mov_accel_sprint : mov_accel) * Time.deltaTime * mvm.normalized;
 
 		//Update velocity
 		rb.velocity = Vector2.ClampMagnitude(rb.velocity, sprinting ? mov_sprintMax : mov_maxSpeed);
@@ -107,12 +107,12 @@ public class PlayerMovement : Humanoid
 
 		//Handle direction stuff
 
-		if(mx > 0) {
+		if(mx > 0.1) {
 			if (!isFacingRight) {
 				FaceDir(true);
 			}
 		}
-		else 
+		else if(mx < -0.1) 
 		{
 			if (isFacingRight) {
 				FaceDir(false);
