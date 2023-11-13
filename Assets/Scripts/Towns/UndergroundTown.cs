@@ -14,16 +14,16 @@ public class UndergroundTown : Town
     private int stabilizer = 99;
     protected override void Restock()
     {
-        supplyList[CommoditiesNames.Gold] = (supplyList[CommoditiesNames.Gold] > supplyInitialValue) ? supplyList[CommoditiesNames.Gold] : supplyInitialValue;
-        supplyList[CommoditiesNames.Copper] = (supplyList[CommoditiesNames.Copper] > supplyInitialValue) ? supplyList[CommoditiesNames.Copper] : supplyInitialValue;
+        supplyList[GlobalEnum.CommoditiesNames.Gold] = (supplyList[GlobalEnum.CommoditiesNames.Gold] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Gold] : supplyInitialValue;
+        supplyList[GlobalEnum.CommoditiesNames.Copper] = (supplyList[GlobalEnum.CommoditiesNames.Copper] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Copper] : supplyInitialValue;
         //supplyList[CommoditiesNames.Coal] = (supplyList[CommoditiesNames.Coal] > supplyInitialValue) ? supplyList[CommoditiesNames.Coal] : supplyInitialValue;
     }
 
-    protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
+    protected override Dictionary<GlobalEnum.CommoditiesNames, int> UpdatePrice(Dictionary<GlobalEnum.CommoditiesNames, int> priceList)
     {
-        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
+        foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
         {
-            if (name == CommoditiesNames.Gold || name == CommoditiesNames.Copper)
+            if (name == GlobalEnum.CommoditiesNames.Gold || name == GlobalEnum.CommoditiesNames.Copper)
             {
                 demandList[name] = 1;
             }
@@ -34,7 +34,7 @@ public class UndergroundTown : Town
             decreaseSupply(netWork, name);
             balanceSupply(netWork, name);
             priceList[name] = Mathf.Clamp(commoditiesPrice[name][0] * (demandList[name] + stabilizer) / (supplyList[name] + stabilizer), commoditiesPrice[name][2], commoditiesPrice[name][1]);
-            print(name + " " + priceList[name]);
+            //print(name + " " + priceList[name]);
         }
         return priceList;
     }

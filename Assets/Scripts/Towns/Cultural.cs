@@ -14,16 +14,16 @@ public class Cultural : Town
 
     protected override void Restock()
     {
-        supplyList[CommoditiesNames.Myrrh] = (supplyList[CommoditiesNames.Myrrh] > supplyInitialValue) ? supplyList[CommoditiesNames.Myrrh] : supplyInitialValue;
-        supplyList[CommoditiesNames.Silk] = (supplyList[CommoditiesNames.Silk] > supplyInitialValue) ? supplyList[CommoditiesNames.Silk] : supplyInitialValue;
+        supplyList[GlobalEnum.CommoditiesNames.Myrrh] = (supplyList[GlobalEnum.CommoditiesNames.Myrrh] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Myrrh] : supplyInitialValue;
+        supplyList[GlobalEnum.CommoditiesNames.Silk] = (supplyList[GlobalEnum.CommoditiesNames.Silk] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Silk] : supplyInitialValue;
         //supplyList[CommoditiesNames.Textile] = (supplyList[CommoditiesNames.Textile] > supplyInitialValue) ? supplyList[CommoditiesNames.Textile] : supplyInitialValue;
     }
 
-    protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
+    protected override Dictionary<GlobalEnum.CommoditiesNames, int> UpdatePrice(Dictionary<GlobalEnum.CommoditiesNames, int> priceList)
     {
-        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
+        foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
         {
-            if (name == CommoditiesNames.Myrrh || name == CommoditiesNames.Silk)
+            if (name == GlobalEnum.CommoditiesNames.Myrrh || name == GlobalEnum.CommoditiesNames.Silk)
             {
                 demandList[name] = 1;
             }

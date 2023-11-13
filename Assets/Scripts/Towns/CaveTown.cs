@@ -16,19 +16,19 @@ public class CaveTown : Town
     //supplies for the locally produced products are always max
     protected override void Restock()
     {
-        supplyList[CommoditiesNames.Jewelry] = (supplyList[CommoditiesNames.Jewelry] > supplyInitialValue) ? supplyList[CommoditiesNames.Jewelry] : supplyInitialValue;
-        supplyList[CommoditiesNames.Dagger] = (supplyList[CommoditiesNames.Dagger] > supplyInitialValue) ? supplyList[CommoditiesNames.Dagger] : supplyInitialValue;
+        supplyList[GlobalEnum.CommoditiesNames.Jewelry] = (supplyList[GlobalEnum.CommoditiesNames.Jewelry] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Jewelry] : supplyInitialValue;
+        supplyList[GlobalEnum.CommoditiesNames.Dagger] = (supplyList[GlobalEnum.CommoditiesNames.Dagger] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Dagger] : supplyInitialValue;
         //supplyList[CommoditiesNames.Pot] = (supplyList[CommoditiesNames.Pot] > supplyInitialValue) ? supplyList[CommoditiesNames.Pot] : supplyInitialValue;
     }
 
 
-    protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
+    protected override Dictionary<GlobalEnum.CommoditiesNames, int> UpdatePrice(Dictionary<GlobalEnum.CommoditiesNames, int> priceList)
     {
 
         //supply for others decrease over time
-        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
+        foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
         {
-            if (name == CommoditiesNames.Jewelry || name == CommoditiesNames.Dagger)
+            if (name == GlobalEnum.CommoditiesNames.Jewelry || name == GlobalEnum.CommoditiesNames.Dagger)
             {
                 demandList[name] = 1;
             }

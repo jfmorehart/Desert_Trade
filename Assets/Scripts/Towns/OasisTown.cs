@@ -16,17 +16,17 @@ public class OasisTown : Town
 
     protected override void Restock()
     {
-        supplyList[CommoditiesNames.Dates] = (supplyList[CommoditiesNames.Dates] > supplyInitialValue) ? supplyList[CommoditiesNames.Dates] : supplyInitialValue;
+        supplyList[GlobalEnum.CommoditiesNames.Dates] = (supplyList[GlobalEnum.CommoditiesNames.Dates] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Dates] : supplyInitialValue;
         //supplyList[CommoditiesNames.Water] = (supplyList[CommoditiesNames.Water] > supplyInitialValue) ? supplyList[CommoditiesNames.Water] : supplyInitialValue;
-        supplyList[CommoditiesNames.Cotton] = (supplyList[CommoditiesNames.Cotton] > supplyInitialValue) ? supplyList[CommoditiesNames.Cotton] : supplyInitialValue;
+        supplyList[GlobalEnum.CommoditiesNames.Cotton] = (supplyList[GlobalEnum.CommoditiesNames.Cotton] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Cotton] : supplyInitialValue;
     }
 
-    protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
+    protected override Dictionary<GlobalEnum.CommoditiesNames, int> UpdatePrice(Dictionary<GlobalEnum.CommoditiesNames, int> priceList)
     { 
         //supply for others decrease over time
-        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
+        foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
         {
-            if (name == CommoditiesNames.Dates || name == CommoditiesNames.Cotton)
+            if (name == GlobalEnum.CommoditiesNames.Dates || name == GlobalEnum.CommoditiesNames.Cotton)
             {
                 demandList[name] = 1;
             }
