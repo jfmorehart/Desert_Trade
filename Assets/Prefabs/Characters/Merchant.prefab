@@ -133,11 +133,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e69299657164628b6ffa740cec2605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultRight: 1
   team: 3
   hp: {fileID: 5555949611869066421}
   isFacingRight: 1
   isMoving: 0
   movement_locked: 0
+  anim: {fileID: 0}
+  flashCol: {r: 0, g: 0, b: 0, a: 0}
+  flashDuration: 0
   visionRadius: 20
   mov_speed: 6
   dest: {x: 0, y: 0, z: 0}
@@ -395,7 +399,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8397525851431089558}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -478,7 +482,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9012027433456398189}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
