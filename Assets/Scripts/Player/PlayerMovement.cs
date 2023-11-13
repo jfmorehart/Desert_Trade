@@ -31,11 +31,8 @@ public class PlayerMovement : Humanoid
 	public KeyCode enterKey;
 	Transform icontrigger;
 
-
-
     protected override void Awake()
 	{
-
 		base.Awake();
 
 		if (ScenesStatic.OnMap()) {
