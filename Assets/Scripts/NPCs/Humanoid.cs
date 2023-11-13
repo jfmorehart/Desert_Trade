@@ -16,6 +16,7 @@ public class Humanoid : MonoBehaviour, IDamageable
 
 	public Animator anim;
 	SpriteRenderer ren;
+	Color regCol;
 	public Color flashCol;
 	public float flashDuration;
 
@@ -24,6 +25,7 @@ public class Humanoid : MonoBehaviour, IDamageable
 		ren = GetComponent<SpriteRenderer>();
 		hp.SetOwner(this as IDamageable);
 		rb = GetComponent<Rigidbody2D>();
+		regCol = ren.color;
 	}
 
 	protected virtual void Update()
@@ -85,7 +87,7 @@ public class Humanoid : MonoBehaviour, IDamageable
 	void Unflash()
 	{
 		if(ren != null) {
-			ren.color = Color.white;
+			ren.color = regCol;
 		}
 	}
 

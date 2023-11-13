@@ -136,6 +136,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1270765699934315481, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: mov_accel
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331516492101389708, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331516492101389708, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2937768394021763241, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
       propertyPath: weapon

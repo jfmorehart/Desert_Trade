@@ -44,7 +44,7 @@ public class Melee : MonoBehaviour
 	//What executes the attack
 	void Stab()
 	{
-		ren.enabled = true;
+		ren.enabled = false;
 		col.enabled = true;
 
 		Invoke(nameof(HideKillBox), attackDuration);
