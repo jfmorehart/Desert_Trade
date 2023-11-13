@@ -67,7 +67,18 @@ public class InventDisplay : MonoBehaviour
     public void UpdateInventory()
     {
         playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+
         townInput(playerInventory.currentTown);
+
+        location.text = "Location: " + playerInventory.currentTown.ToString();
+        money.text = "Fortune: " + playerInventory.playerMoney.ToString();
+        PrintBagQuant();
+    }
+
+    public void UpdateInventoryPlayer()
+    {
+        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+
 
         location.text = "Location: " + playerInventory.currentTown.ToString();
         money.text = "Fortune: " + playerInventory.playerMoney.ToString();
@@ -94,7 +105,6 @@ public class InventDisplay : MonoBehaviour
             currentTown = GameObject.Find("CulturalHub").GetComponent<Town>();
 
         }
-        //print(currentTown);
         PrintPrice(currentTown);
     }
 
