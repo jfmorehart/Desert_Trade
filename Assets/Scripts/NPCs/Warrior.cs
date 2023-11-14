@@ -30,8 +30,19 @@ public class Warrior : NPC
 		SetDestination(target.transform.position);
 		if(Vector2.Distance(target.transform.position, transform.position) < meleeDist) {
 			weapon.TryStab();
+			anim.SetBool("swinging", true);
+			Invoke(nameof(EndStab), weapon.attackDuration + weapon.killDelay);
 		}
 	}
+
+	public void EndStab()
+	{
+		if (anim != null)
+		{
+			anim.SetBool("swinging", false);
+		}
+	}
+
 
 	public void Attack(Humanoid newtarget) {
 		attacking = true;
