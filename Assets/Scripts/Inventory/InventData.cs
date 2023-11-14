@@ -4,32 +4,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventData : MonoBehaviour
+public static class InventData
 {
-    private GlobalEnum.CommoditiesNames currentCommodity;
-    public Slider slider;
-    public bool isBuy = true;
-    private InventDisplay inventDisplay;
+    private static GlobalEnum.CommoditiesNames currentCommodity;
+    public static Slider slider;
+    public static bool isBuy = true;
+    //private static InventDisplay inventDisplay;
 
-    private PlayerInventory playerInventory;
+    //private PlayerInventory playerInventory;
     // Start is called before the first frame update
-    void Awake()
-    {
-        inventDisplay = GameObject.Find("Inventory").GetComponent<InventDisplay>();
-        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void ChangeOption(bool _isBuy)
+    public static void ChangeOption(bool _isBuy)
     {
         isBuy = _isBuy;
     }
-    public void ChangeOption2(string name)
+    public static void ChangeOption2(string name)
     {
         if (!Enum.TryParse(name, out currentCommodity))
         {
@@ -37,27 +26,27 @@ public class InventData : MonoBehaviour
         }
     }
 
-    public int sliderChange()
+    public static int sliderChange()
     {
         slider = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
         return (int)slider.value;
     }
 
 
-    public void updateQuant()
+    public static void updateQuant()
     {
         int amount = sliderChange();
         if (isBuy)
         {
-            inventDisplay.currentTown.supplyList[currentCommodity] -= amount;
-            playerInventory.playerMoney -= (inventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
-            playerInventory.playerBag[currentCommodity] += amount;
+            InventDisplay.currentTown.supplyList[currentCommodity] -= amount;
+            PlayerInventory.playerMoney -= (InventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
+            PlayerInventory.playerBag[currentCommodity] += amount;
         }
         else
         {
-            inventDisplay.currentTown.supplyList[currentCommodity] += amount;
-            playerInventory.playerMoney += (inventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
-            playerInventory.playerBag[currentCommodity] -= amount;
+            InventDisplay.currentTown.supplyList[currentCommodity] += amount;
+            PlayerInventory.playerMoney += (InventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
+            PlayerInventory.playerBag[currentCommodity] -= amount;
         }
     }
 }

@@ -11,33 +11,6 @@ public abstract class Town : MonoBehaviour
 {
     public TMP_Text display;
     public Town[] netWork;
-    //public enum CommoditiesNames
-    //{
-    //    Dates,
-    //    Water,
-    //    Cotton,
-    //    Jewelry,
-    //    Dagger,
-    //    Pot,
-    //    Gold,
-    //    Copper,
-    //    Coal,
-    //    Myrrh,
-    //    Silk,
-    //    Textile
-    //}
-
-    //public enum CommoditiesNames
-    //{
-    //    Dates,
-    //    Cotton,
-    //    Jewelry,
-    //    Dagger,
-    //    Gold,
-    //    Copper,
-    //    Myrrh,
-    //    Silk,
-    //}
 
 
     private Inventory inventoryData;
@@ -131,17 +104,17 @@ public abstract class Town : MonoBehaviour
         }
     }
 
-    public void UseUpdatePrice(Town townName)
-    {
-        display.text = "";
-        foreach (var k in UpdatePrice(townName.finalValue))
-        {
-            GlobalEnum.CommoditiesNames key = k.Key;
-            int value = k.Value;
+    //public void UseUpdatePrice(Town townName)
+    //{
+    //    display.text = "";
+    //    foreach (var k in UpdatePrice(townName.finalValue))
+    //    {
+    //        GlobalEnum.CommoditiesNames key = k.Key;
+    //        int value = k.Value;
 
-            display.text += (key + " Value: " + value + " \n");
-        }
-    }
+    //        display.text += (key + " Value: " + value + " \n");
+    //    }
+    //}
 
     public int UseUpdatePriceSingle(GlobalEnum.CommoditiesNames key)
     {
@@ -163,5 +136,6 @@ public abstract class Town : MonoBehaviour
 
     protected abstract void Restock();
     protected abstract Dictionary<GlobalEnum.CommoditiesNames, int> UpdatePrice(Dictionary<GlobalEnum.CommoditiesNames, int> priceList);
+    
 
 }

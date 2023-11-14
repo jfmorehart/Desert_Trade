@@ -5,88 +5,68 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventDisplay : MonoBehaviour
+public static class InventDisplay
 {
-    //public enum CommoditiesNames
-    //{
-    //    Dates,
-    //    Cotton,
-    //    Jewelry,
-    //    Dagger,
-    //    Gold,
-    //    Copper,
-    //    Myrrh,
-    //    Silk
-    //}
-    //[Serializable]
-    //public enum TownNames
-    //{
-    //    Oasis,
-    //    Underground,
-    //    Cave,
-    //    CulturalHub
-    //}
-    private TextMeshProUGUI location;
-    private TextMeshProUGUI money;
-    private TextMeshProUGUI commoditiesQuant;
-    private PlayerInventory playerInventory;
+
+    private static TextMeshProUGUI location;
+    private static TextMeshProUGUI money;
+    private static TextMeshProUGUI commoditiesQuant;
+    //private PlayerInventory playerInventory;
 
 
-    private TextMeshProUGUI[] prices = new TextMeshProUGUI[Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)).Length];
+    private static TextMeshProUGUI[] prices = new TextMeshProUGUI[Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)).Length];
 
 
-    public Town currentTown;
+    public static Town currentTown;
 
-    void Awake()
+
+
+    public static void AwakeInvent()
     {
         location = GameObject.Find("CurrentLocation").GetComponent<TextMeshProUGUI>();
         money = GameObject.Find("Money").GetComponent<TextMeshProUGUI>();
         commoditiesQuant = GameObject.Find("CommoditiesQuant").GetComponent<TextMeshProUGUI>();
-        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+
+        PlayerInventory.PopulateBag();
 
         int count = 0;
         foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
         {
-            prices[count] = GameObject.Find(name.ToString()+"Price").GetComponent<TextMeshProUGUI>();
+            prices[count] = GameObject.Find(name.ToString() + "Price").GetComponent<TextMeshProUGUI>();
             count++;
         }
 
+        townInput(PlayerInventory.currentTown);
 
-        townInput(playerInventory.currentTown);
-
-        location.text = "Location: " + playerInventory.currentTown.ToString();
-        money.text = "Fortune: " + playerInventory.playerMoney.ToString();
-        PrintBagQuant();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    public void UpdateInventory()
-    {
-        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
-
-        townInput(playerInventory.currentTown);
-
-        location.text = "Location: " + playerInventory.currentTown.ToString();
-        money.text = "Fortune: " + playerInventory.playerMoney.ToString();
-        PrintBagQuant();
-    }
-
-    public void UpdateInventoryPlayer()
-    {
-        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
-
-
-        location.text = "Location: " + playerInventory.currentTown.ToString();
-        money.text = "Fortune: " + playerInventory.playerMoney.ToString();
+        location.text = "Location: " + PlayerInventory.currentTown.ToString();
+        money.text = "Fortune: " + PlayerInventory.playerMoney.ToString();
         PrintBagQuant();
     }
 
 
-    public void townInput(GlobalEnum.TownNames name)
+    public static void UpdateInventory()
+    {
+        //playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+
+        townInput(PlayerInventory.currentTown);
+
+        location.text = "Location: " + PlayerInventory.currentTown.ToString();
+        money.text = "Fortune: " + PlayerInventory.playerMoney.ToString();
+        PrintBagQuant();
+    }
+
+    public static void UpdateInventoryPlayer()
+    {
+        //playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+
+
+        location.text = "Location: " + PlayerInventory.currentTown.ToString();
+        money.text = "Fortune: " + PlayerInventory.playerMoney.ToString();
+        PrintBagQuant();
+    }
+
+
+    public static void townInput(GlobalEnum.TownNames name)
     {       
         if (name == GlobalEnum.TownNames.Cave)
         {
@@ -108,11 +88,11 @@ public class InventDisplay : MonoBehaviour
         PrintPrice(currentTown);
     }
 
-    public void PrintBagQuant()
+    public static void PrintBagQuant()
     {
         int count = 0;
         commoditiesQuant.text = "          ";
-        foreach (var k in playerInventory.playerBag)
+        foreach (var k in PlayerInventory.playerBag)
         {
             count++;
             GlobalEnum.CommoditiesNames key = k.Key;
@@ -128,8 +108,9 @@ public class InventDisplay : MonoBehaviour
     }
 
 
-    public void PrintPrice(Town townName)
+    public static void PrintPrice(Town townName)
     {
+        //Debug.Log("price" + townName.name);
         int count = 0;
         foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
         {
