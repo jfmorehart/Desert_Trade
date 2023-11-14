@@ -46,7 +46,6 @@ public static class InventDisplay
 
     public static void UpdateInventory()
     {
-        //playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
 
         townInput(PlayerInventory.currentTown);
 
@@ -57,8 +56,6 @@ public static class InventDisplay
 
     public static void UpdateInventoryPlayer()
     {
-        //playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
-
 
         location.text = "Location: " + PlayerInventory.currentTown.ToString();
         money.text = "Fortune: " + PlayerInventory.playerMoney.ToString();
@@ -110,7 +107,6 @@ public static class InventDisplay
 
     public static void PrintPrice(Town townName)
     {
-        //Debug.Log("price" + townName.name);
         int count = 0;
         foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
         {

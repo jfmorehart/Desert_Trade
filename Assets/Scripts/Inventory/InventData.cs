@@ -7,17 +7,16 @@ using UnityEngine.UI;
 public static class InventData
 {
     private static GlobalEnum.CommoditiesNames currentCommodity;
-    public static Slider slider;
+
     public static bool isBuy = true;
-    //private static InventDisplay inventDisplay;
 
-    //private PlayerInventory playerInventory;
-    // Start is called before the first frame update
 
-    public static void ChangeOption(bool _isBuy)
+    public static bool ChangeOption(bool _isBuy)
     {
         isBuy = _isBuy;
+        return isBuy;
     }
+
     public static void ChangeOption2(string name)
     {
         if (!Enum.TryParse(name, out currentCommodity))
@@ -26,16 +25,10 @@ public static class InventData
         }
     }
 
-    public static int sliderChange()
-    {
-        slider = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
-        return (int)slider.value;
-    }
-
 
     public static void updateQuant()
     {
-        int amount = sliderChange();
+        int amount = 1;
         if (isBuy)
         {
             InventDisplay.currentTown.supplyList[currentCommodity] -= amount;

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +10,8 @@ public class PlayerEnterTrade : MonoBehaviour
     public GlobalEnum.TownNames town;
 
     public Town currentTown;
+    public InventRestrict inventRestrict;
+    public TextMeshProUGUI text;
 
     public InventShow UI;
 
@@ -42,6 +46,13 @@ public class PlayerEnterTrade : MonoBehaviour
             }
             InventDisplay.UpdateInventory();
 
+            foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
+            {
+                inventRestrict = GameObject.Find("panel" + name).GetComponent<InventRestrict>();
+                inventRestrict.max = 0;
+                text = GameObject.Find(name + "Left").GetComponent<TextMeshProUGUI>();
+                text.text = "Remain: " + (inventRestrict.limit - inventRestrict.max);
+            }
             //currentTown.UseUpdatePrice(currentTown);
 
 
