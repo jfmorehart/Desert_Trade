@@ -5,14 +5,27 @@ using UnityEngine;
 public class InventShow : MonoBehaviour
 {
     private bool switcher = true;
+    public bool isNewTown = true;
     void Awake()
     {
         //DontDestroyOnLoad(gameObject);
         HideAllChildren();
     }
 
+    public void Refresh()
+    {
+        isNewTown = true;
+    }
+
+
+    public void setIsNewTown()
+    {
+        isNewTown = false;
+    }
+
     public void HideAllChildren()
     {
+        
         foreach (Transform child in transform)
         {
             if (!child.gameObject.CompareTag("Panel"))
@@ -44,9 +57,11 @@ public class InventShow : MonoBehaviour
                     InventDisplay.AwakeInvent();
                     switcher = false;
                 }
-        
+
             }
-            
+
         }
     }
+
+
 }

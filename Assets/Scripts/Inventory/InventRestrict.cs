@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class InventRestrict : MonoBehaviour
 {
-    public int max;
+    public int max = 0;
 
     public int limit = 5;
 
     public BtnTrade updateRemain;
+
+    void OnEnable()
+    {
+        max = 0;
+    }
 
     public bool CheckIfMax()
     {
