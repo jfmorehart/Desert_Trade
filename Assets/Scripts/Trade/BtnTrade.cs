@@ -22,13 +22,13 @@ public class BtnTrade : MonoBehaviour
         inventRestrict = GameObject.Find("panel" + name).GetComponent<InventRestrict>();
         text = GameObject.Find(name + "Left").GetComponent<TextMeshProUGUI>();
         InventData.ChangeOption2(name);
-        if (__isbuy)
+        if (__isbuy )
         {
-            if (!inventRestrict.CheckIfMax())
+            if (!inventRestrict.CheckIfMax() && InventData.updateQuant())
             {
-                text.text = "Remain: " + (inventRestrict.limit - inventRestrict.max);
-                InventData.updateQuant();
+                text.text = "Remain: " + (inventRestrict.limit - inventRestrict.max);      
                 InventDisplay.UpdateInventoryPlayer();
+                inventRestrict.UpdateMax();
             }
             else{
                 //exceeds 5 what should we do
@@ -36,8 +36,12 @@ public class BtnTrade : MonoBehaviour
         }
         else
         {
-            InventData.updateQuant();
-            InventDisplay.UpdateInventoryPlayer();
+            if (InventData.updateQuant())
+            {
+                InventDisplay.UpdateInventoryPlayer();
+                inventRestrict.UpdateMax();
+            }
+
         }
     }
 }

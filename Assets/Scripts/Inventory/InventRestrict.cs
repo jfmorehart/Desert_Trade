@@ -17,9 +17,13 @@ public class InventRestrict : MonoBehaviour
         {
             return true;
         }
-        max++;
         return false;
 
+    }
+
+    public void UpdateMax()
+    {
+        max++;
     }
     //private void OnEnable()
     //{

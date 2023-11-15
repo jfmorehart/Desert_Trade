@@ -88,18 +88,23 @@ public static class InventDisplay
     public static void PrintBagQuant()
     {
         int count = 0;
-        commoditiesQuant.text = "          ";
+        commoditiesQuant.text = "";
+        int length = 15;
+        int padLength = 0;
         foreach (var k in PlayerInventory.playerBag)
         {
             count++;
             GlobalEnum.CommoditiesNames key = k.Key;
             int value = k.Value;
-            
-            commoditiesQuant.text += $"{key}:{value}          "; 
-            if(count == 4)
+
+            padLength = -(length - (key.ToString().Length + value.ToString().Length));
+
+            commoditiesQuant.text += string.Format("{0}: {1,-5}", key, value);
+                //$"{key}:{value,padLength}";
+            if (count == 4)
             {
                 commoditiesQuant.text += "\n";
-                commoditiesQuant.text += "          ";
+                //commoditiesQuant.text += "  ";
             }
         }
     }

@@ -1149,6 +1149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 0
   limit: 5
+  updateRemain: {fileID: 0}
 --- !u!1 &1141918686211512258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 0
   limit: 5
+  updateRemain: {fileID: 0}
 --- !u!1 &1651597982030039198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2621,6 +2623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 0
   limit: 5
+  updateRemain: {fileID: 0}
 --- !u!1 &2635666635900636610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,6 +2715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 0
   limit: 5
+  updateRemain: {fileID: 0}
 --- !u!1 &2732561497656428129
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,6 +4011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 0
   limit: 5
+  updateRemain: {fileID: 0}
 --- !u!1 &3727748579186516568
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,8 +4318,8 @@ Transform:
   - {fileID: 8961810354053059057}
   - {fileID: 7774792323828356317}
   - {fileID: 4501633014810415558}
-  - {fileID: 1192755946986134281}
   - {fileID: 5992011320586476727}
+  - {fileID: 1192755946986134281}
   - {fileID: 8117210375792468436}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7018,6 +7023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventRestrict: {fileID: 0}
+  text: {fileID: 0}
 --- !u!1 &6949035189378524393
 GameObject:
   m_ObjectHideFlags: 0
@@ -7109,6 +7115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 0
   limit: 5
+  updateRemain: {fileID: 0}
 --- !u!1 &7053887493592981109
 GameObject:
   m_ObjectHideFlags: 0
@@ -7484,6 +7491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 0
   limit: 5
+  updateRemain: {fileID: 0}
 --- !u!1 &7137417326850051646
 GameObject:
   m_ObjectHideFlags: 0
@@ -9646,3 +9654,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 0
   limit: 5
+  updateRemain: {fileID: 0}

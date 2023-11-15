@@ -8,16 +8,17 @@ using UnityEngine.SceneManagement;
 public class PlayerEnterTrade : MonoBehaviour
 {
     public GlobalEnum.TownNames town;
-
+    [HideInInspector]
     public Town currentTown;
-    public InventRestrict inventRestrict;
-    public TextMeshProUGUI text;
+    private InventRestrict inventRestrict;
+    private TextMeshProUGUI text;
 
-    public InventShow UI;
+    private InventShow UI;
 
     public void Start()
     {
-        UI = GameObject.Find("Inventory").GetComponent<InventShow>();
+        //UI = GameObject.Find("Inventory").GetComponent<InventShow>();
+        UI = GameObject.Find("Dialogue").GetComponent<InventShow>();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -45,6 +46,9 @@ public class PlayerEnterTrade : MonoBehaviour
                 PlayerInventory.updateTown("Oasis");
             }
             InventDisplay.UpdateInventory();
+
+
+
 
             foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
             {

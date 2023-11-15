@@ -26,20 +26,29 @@ public static class InventData
     }
 
 
-    public static void updateQuant()
+    public static bool updateQuant()
     {
         int amount = 1;
         if (isBuy)
         {
+            if (PlayerInventory.playerMoney < (InventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount))
+            {
+                return false;
+            }
             InventDisplay.currentTown.supplyList[currentCommodity] -= amount;
             PlayerInventory.playerMoney -= (InventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
             PlayerInventory.playerBag[currentCommodity] += amount;
         }
         else
         {
+            if(PlayerInventory.playerBag[currentCommodity] <= 0)
+            {
+                return false;
+            }
             InventDisplay.currentTown.supplyList[currentCommodity] += amount;
             PlayerInventory.playerMoney += (InventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
             PlayerInventory.playerBag[currentCommodity] -= amount;
         }
+        return true;
     }
 }
