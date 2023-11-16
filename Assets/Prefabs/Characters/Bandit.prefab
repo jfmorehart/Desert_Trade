@@ -114,7 +114,7 @@ MonoBehaviour:
   flashCol: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0
   visionRadius: 6
-  mov_speed: 6
+  mov_speed: 9
   dest: {x: 0, y: 0, z: 0}
   stopDist: 1
   attacking: 0

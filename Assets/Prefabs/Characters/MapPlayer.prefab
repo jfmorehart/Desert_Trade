@@ -92,22 +92,27 @@ PrefabInstance:
     - target: {fileID: 2937768394021763241, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
       propertyPath: throwKey
-      value: 0
+      value: 106
       objectReference: {fileID: 0}
     - target: {fileID: 2937768394021763241, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2937768394021763241, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: throwDelay
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4449692650894393228, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
       propertyPath: hp
-      value: 80
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4449692650894393228, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
       propertyPath: hp_max
-      value: 80
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4493087574051318953, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
