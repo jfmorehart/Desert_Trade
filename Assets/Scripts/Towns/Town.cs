@@ -104,17 +104,17 @@ public abstract class Town : MonoBehaviour
         }
     }
 
-    //public void UseUpdatePrice(Town townName)
-    //{
-    //    display.text = "";
-    //    foreach (var k in UpdatePrice(townName.finalValue))
-    //    {
-    //        GlobalEnum.CommoditiesNames key = k.Key;
-    //        int value = k.Value;
+    public void UseUpdatePrice(Town townName)
+    {
+        UpdatePrice(townName.finalValue);
+        //foreach (var k in UpdatePrice(townName.finalValue))
+        //{
+        //    GlobalEnum.CommoditiesNames key = k.Key;
+        //    int value = k.Value;
 
-    //        display.text += (key + " Value: " + value + " \n");
-    //    }
-    //}
+        //    display.text += (key + " Value: " + value + " \n");
+        //}
+    }
 
     public int UseUpdatePriceSingle(GlobalEnum.CommoditiesNames key)
     {

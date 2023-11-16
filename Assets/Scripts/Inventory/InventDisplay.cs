@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static GlobalEnum;
 
 public static class InventDisplay
 {
@@ -54,6 +55,8 @@ public static class InventDisplay
         PrintBagQuant();
     }
 
+
+
     public static void UpdateInventoryPlayer()
     {
 
@@ -82,6 +85,7 @@ public static class InventDisplay
             currentTown = GameObject.Find("CulturalHub").GetComponent<Town>();
 
         }
+        currentTown.UseUpdatePrice(currentTown);
         PrintPrice(currentTown);
     }
 
@@ -119,4 +123,5 @@ public static class InventDisplay
             count++;
         }
     }
+
 }
