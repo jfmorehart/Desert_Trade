@@ -145,8 +145,10 @@ MonoBehaviour:
   isMoving: 0
   movement_locked: 0
   anim: {fileID: 4532453072934853891}
+  flashCol: {r: 0, g: 0, b: 0, a: 0}
+  flashDuration: 0
   dash: 0
-  mov_accel: 0.1
+  mov_accel: 300
   mov_maxSpeed: 2
   mov_decay: 10
   dash_dist: 0.5
