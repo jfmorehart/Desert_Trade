@@ -4,32 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventData : MonoBehaviour
+public static class InventData
 {
-    private GlobalEnum.CommoditiesNames currentCommodity;
-    public Slider slider;
-    public bool isBuy = true;
-    private InventDisplay inventDisplay;
+    private static GlobalEnum.CommoditiesNames currentCommodity;
 
-    private PlayerInventory playerInventory;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        inventDisplay = GameObject.Find("Inventory").GetComponent<InventDisplay>();
-        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
-    }
+    public static bool isBuy = true;
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
-
-    public void ChangeOption(bool _isBuy)
+    public static bool ChangeOption(bool _isBuy)
     {
         isBuy = _isBuy;
+        return isBuy;
     }
-    public void ChangeOption2(string name)
+
+    public static void ChangeOption2(string name)
     {
         if (!Enum.TryParse(name, out currentCommodity))
         {
@@ -37,27 +25,30 @@ public class InventData : MonoBehaviour
         }
     }
 
-    public int sliderChange()
-    {
-        slider = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
-        return (int)slider.value;
-    }
 
-
-    public void updateQuant()
+    public static bool updateQuant()
     {
-        int amount = sliderChange();
+        int amount = 1;
         if (isBuy)
         {
-            inventDisplay.currentTown.supplyList[currentCommodity] -= amount;
-            playerInventory.playerMoney -= (inventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
-            playerInventory.playerBag[currentCommodity] += amount;
+            if (PlayerInventory.playerMoney < (InventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount))
+            {
+                return false;
+            }
+            InventDisplay.currentTown.supplyList[currentCommodity] -= amount;
+            PlayerInventory.playerMoney -= (InventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
+            PlayerInventory.playerBag[currentCommodity] += amount;
         }
         else
         {
-            inventDisplay.currentTown.supplyList[currentCommodity] += amount;
-            playerInventory.playerMoney += (inventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
-            playerInventory.playerBag[currentCommodity] -= amount;
+            if(PlayerInventory.playerBag[currentCommodity] <= 0)
+            {
+                return false;
+            }
+            InventDisplay.currentTown.supplyList[currentCommodity] += amount;
+            PlayerInventory.playerMoney += (InventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
+            PlayerInventory.playerBag[currentCommodity] -= amount;
         }
+        return true;
     }
 }
