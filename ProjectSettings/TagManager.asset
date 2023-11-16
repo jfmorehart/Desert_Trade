@@ -13,6 +13,7 @@ TagManager:
   - Cultural
   - Underground
   - Panel
+  - CulturalHub
   layers:
   - Default
   - TransparentFX
