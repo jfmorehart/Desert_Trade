@@ -10,6 +10,7 @@ public class CaveTown : Town
         Jewelry,
         Dagger
     }
+
     private int stabilizer = 99;
 
 

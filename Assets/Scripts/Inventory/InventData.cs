@@ -49,6 +49,8 @@ public static class InventData
             PlayerInventory.playerMoney += (InventDisplay.currentTown.UseUpdatePriceSingle(currentCommodity) * amount);
             PlayerInventory.playerBag[currentCommodity] -= amount;
         }
+
+
         return true;
     }
 }

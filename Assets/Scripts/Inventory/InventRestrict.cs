@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class InventRestrict : MonoBehaviour
 {
-    public int max = 0;
+    public int count = 0;
 
-    public int limit = 5;
+    public int maxi = 5;
 
     public BtnTrade updateRemain;
 
     void OnEnable()
     {
-        max = 0;
+        count = 0;
     }
 
     public bool CheckIfMax()
     {
-        if(max >= limit)
+        if(count >= maxi)
         {
             return true;
         }
@@ -26,13 +26,14 @@ public class InventRestrict : MonoBehaviour
 
     }
 
+    public void returnQuant()
+    {
+        count--;
+    }
+
     public void UpdateMax()
     {
-        max++;
+        count++;
     }
-    //private void OnEnable()
-    //{
-    //    updateRemain = GameObject.Find("_Inventory").GetComponent<BtnTrade>();
 
-    //}
 }
