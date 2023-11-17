@@ -20,7 +20,7 @@ public class GlobalEnum : MonoBehaviour
     {
         Oasis,
         Underground,
-        Cave,
-        CulturalHub
+        Rawasab,
+        Tajarah
     }
 }
