@@ -34,7 +34,6 @@ public class UndergroundTown : Town
             decreaseSupply(netWork, name);
             balanceSupply(netWork, name);
             priceList[name] = Mathf.Clamp(commoditiesPrice[name][0] * (demandList[name] + stabilizer) / (supplyList[name] + stabilizer), commoditiesPrice[name][2], commoditiesPrice[name][1]);
-            //print(name + " " + priceList[name]);
         }
         return priceList;
     }

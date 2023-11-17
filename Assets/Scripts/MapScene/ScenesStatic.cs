@@ -11,6 +11,8 @@ public static class ScenesStatic
     // of this buildnum array, so if you want cave to point to scene 4
     // you would start this array with 4
     public static int[] enumToBuildNum = { 0, 1, 2, 3 };
+    public static InventShow UI;
+
 
 	public enum Name {
 		Map,
@@ -21,7 +23,11 @@ public static class ScenesStatic
     }
 
     public static void Load(Name n) {
+        UI = GameObject.Find("Inventory").GetComponent<InventShow>();
+        //UI[1] = GameObject.Find("Dialogue").GetComponent<InventShow>();
+        UI.Refresh();
         SceneManager.LoadScene(enumToBuildNum[(int)n]);
+
     }
 
     public static bool OnMap() {

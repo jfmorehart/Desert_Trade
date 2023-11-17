@@ -7,6 +7,13 @@ TagManager:
   - Shield
   - MapTown
   - Slider
+  - Merchant
+  - Oasis
+  - Cave
+  - Cultural
+  - Underground
+  - Panel
+  - CulturalHub
   layers:
   - Default
   - TransparentFX
