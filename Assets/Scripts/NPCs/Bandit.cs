@@ -6,20 +6,14 @@ public class Bandit : Warrior
 {
 	//Bad guy!
 	public int numDrops = 4;
-	Vector2 start;
-	public float followDist;
-	protected override void Awake()
-	{
-		base.Awake();
-		start = transform.position;
-	}
+
 	protected override void Encounter(Humanoid hu)
 	{
 		base.Encounter(hu);
 
 		//Attack non banditos
-		Vector2 dir = start - (Vector2)transform.position;
-		if(hu.team == Team.Villager || hu.team == Team.Player && dir.magnitude < followDist) {
+		if(hu.team == Team.Villager || hu.team == Team.Player ) {
+
 			if (!attacking) Attack(hu);
 		}
 	}

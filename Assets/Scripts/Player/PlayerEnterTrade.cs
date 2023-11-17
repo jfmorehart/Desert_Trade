@@ -103,20 +103,20 @@ public class PlayerEnterTrade : MonoBehaviour
         UI = GameObject.Find("Inventory").GetComponent<InventShow>();
         UI.ShowAllChildren();
 
-        if (town == GlobalEnum.TownNames.Cave)
+        if (town == GlobalEnum.TownNames.Rawasab)
         {
             currentTown = GameObject.FindGameObjectWithTag("Cave").GetComponent<CaveTown>();
-            PlayerInventory.updateTown("Cave");
+            PlayerInventory.updateTown("Rawasab");
         }
         else if (town == GlobalEnum.TownNames.Tajarah)
         {
-            currentTown = GameObject.FindGameObjectWithTag("CulturalHub").GetComponent<Cultural>();
-            PlayerInventory.updateTown("CulturalHub");
+            currentTown = GameObject.FindGameObjectWithTag("Tajarah").GetComponent<Cultural>();
+            PlayerInventory.updateTown("Tajarah");
         }
         else if (town == GlobalEnum.TownNames.Underground)
         {
             currentTown = GameObject.FindGameObjectWithTag("Underground").GetComponent<UndergroundTown>();
-            PlayerInventory.updateTown("Undergorund");
+            PlayerInventory.updateTown("Underground");
         }
         else if (town == GlobalEnum.TownNames.Oasis)
         {
