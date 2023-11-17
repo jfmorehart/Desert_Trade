@@ -120,6 +120,16 @@ public class PlayerMovement : Humanoid
 		}
     }
 
+	public override void OnCollisionEnter2D(Collision2D collision)
+	{
+		base.OnCollisionEnter2D(collision);
+		if (collision.collider.CompareTag("Drop"))
+		{
+			Droppable dr = collision.gameObject.GetComponent<Droppable>();
+			DropManager.ins.Collect(dr);
+		}
+
+	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.CompareTag("MapTown")){

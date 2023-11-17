@@ -46,10 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueText: {fileID: 0}
   Sentences:
-  - Good day, my dear merchant. Your silk stalls always brighten this dusty desert
-    market. What splendid silks have you for me today?
-  - Ah, the color is reminiscent of the endless sky. And this crimson one, it's as
-    vibrant as the desert sun at dusk. How much for these fine fabrics?
-  - Ah, it's a true pleasure to see you again, my venerable friend. Have you heard
-    the latest tales of adventure from the dunes?
+  - Anything you'd like to buy?
   DialogueSpeed: 0
