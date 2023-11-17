@@ -10,7 +10,7 @@ public class Cultural : Town
         Myrrh,
         Silk
     }
-    private int stabilizer = 99;
+    private int stabilizer = 65;
 
     protected override void Restock()
     {

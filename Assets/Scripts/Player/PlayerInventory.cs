@@ -7,13 +7,15 @@ public static class PlayerInventory
 {
     public static int playerMoney = 50;
 
-    public static GlobalEnum.TownNames currentTown = GlobalEnum.TownNames.Oasis;
+    //public static GlobalEnum.TownNames currentTown = GlobalEnum.TownNames.Zephyr;
+    public static GlobalEnum.TownNames currentTown;
+
     public static Dictionary<GlobalEnum.CommoditiesNames, int> playerBag = new Dictionary<GlobalEnum.CommoditiesNames, int>();
 
 
-    public static void updateTown(string name)
+    public static void updateTown(GlobalEnum.TownNames name)
     {
-        currentTown = (GlobalEnum.TownNames)Enum.Parse(typeof(GlobalEnum.TownNames), name);
+        currentTown = name;
     }
 
     public static void PopulateBag()

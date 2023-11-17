@@ -69,14 +69,14 @@ public static class InventDisplay
     public static void townInput(GlobalEnum.TownNames name)
     {       
         if (name == GlobalEnum.TownNames.Rawasab)
-		{
+        {
             currentTown = GameObject.Find("Cave").GetComponent<Town>();
         }
         else if(name == GlobalEnum.TownNames.Underground)
         {
             currentTown = GameObject.Find("Underground").GetComponent<Town>();
         }
-        else if (name == GlobalEnum.TownNames.Oasis)
+        else if (name == GlobalEnum.TownNames.Zephyr)
         {
             currentTown = GameObject.Find("Oasis").GetComponent<Town>();
         }

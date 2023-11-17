@@ -11,7 +11,7 @@ public class UndergroundTown : Town
         Copper
     }
 
-    private int stabilizer = 99;
+    private int stabilizer = 60;
     protected override void Restock()
     {
         supplyList[GlobalEnum.CommoditiesNames.Gold] = (supplyList[GlobalEnum.CommoditiesNames.Gold] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Gold] : supplyInitialValue;

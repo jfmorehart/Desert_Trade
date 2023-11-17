@@ -106,22 +106,22 @@ public class PlayerEnterTrade : MonoBehaviour
         if (town == GlobalEnum.TownNames.Rawasab)
         {
             currentTown = GameObject.FindGameObjectWithTag("Cave").GetComponent<CaveTown>();
-            PlayerInventory.updateTown("Rawasab");
+            PlayerInventory.updateTown(GlobalEnum.TownNames.Rawasab);
         }
         else if (town == GlobalEnum.TownNames.Tajarah)
         {
-            currentTown = GameObject.FindGameObjectWithTag("Tajarah").GetComponent<Cultural>();
-            PlayerInventory.updateTown("Tajarah");
+            currentTown = GameObject.FindGameObjectWithTag("CulturalHub").GetComponent<Cultural>();
+            PlayerInventory.updateTown(GlobalEnum.TownNames.Tajarah);
         }
         else if (town == GlobalEnum.TownNames.Underground)
         {
             currentTown = GameObject.FindGameObjectWithTag("Underground").GetComponent<UndergroundTown>();
-            PlayerInventory.updateTown("Underground");
+            PlayerInventory.updateTown(GlobalEnum.TownNames.Underground);
         }
-        else if (town == GlobalEnum.TownNames.Oasis)
+        else if (town == GlobalEnum.TownNames.Zephyr)
         {
             currentTown = GameObject.FindGameObjectWithTag("Oasis").GetComponent<OasisTown>();
-            PlayerInventory.updateTown("Oasis");
+            PlayerInventory.updateTown(GlobalEnum.TownNames.Zephyr);
         }
 
         InventDisplay.UpdateInventory();

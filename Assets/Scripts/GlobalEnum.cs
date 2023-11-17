@@ -17,8 +17,8 @@ public class GlobalEnum : MonoBehaviour
     }
 
     public enum TownNames
-    {
-        Oasis,
+    {//oasis, underground, cave, culture
+        Zephyr,
         Underground,
         Rawasab,
         Tajarah

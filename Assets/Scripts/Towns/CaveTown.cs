@@ -11,7 +11,7 @@ public class CaveTown : Town
         Dagger
     }
 
-    private int stabilizer = 99;
+    private int stabilizer = 40;
 
 
     //supplies for the locally produced products are always max
