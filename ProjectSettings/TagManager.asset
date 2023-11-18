@@ -14,11 +14,14 @@ TagManager:
   - Underground
   - Panel
   - CulturalHub
+  - Drop
+  - Ouch
+  - NoCactus
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Overhead
   - Water
   - UI
   - 
@@ -50,4 +53,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Over
+    uniqueID: 1712689683
     locked: 0

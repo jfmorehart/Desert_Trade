@@ -91,4 +91,12 @@ public class Humanoid : MonoBehaviour, IDamageable
 		}
 	}
 
+	public virtual void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.collider.CompareTag("Ouch"))
+		{
+			Vector2 dir = transform.position - collision.transform.position;
+			Hit(5, dir, Team.Neutral);
+		}
+	}
 }

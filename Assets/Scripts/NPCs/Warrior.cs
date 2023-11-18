@@ -13,8 +13,14 @@ public class Warrior : NPC
 
 	public float meleeDist;
 	public Melee weapon;
-
-
+	
+	Vector2 start;
+	float followDist = 12;
+	protected override void Awake()
+	{
+		base.Awake();
+		start = transform.position;
+	}
 	protected override void MovementUpdate()
 	{
 		base.MovementUpdate();
@@ -26,12 +32,20 @@ public class Warrior : NPC
 			attacking = false;
 			return;
 		}
-
-		SetDestination(target.transform.position);
-		if(Vector2.Distance(target.transform.position, transform.position) < meleeDist) {
-			weapon.TryStab();
-			anim.SetBool("swinging", true);
-			Invoke(nameof(EndStab), weapon.attackDuration + weapon.killDelay);
+		Vector2 dir = start - (Vector2)transform.position;
+		Vector2 tdir = start - (Vector2)target.transform.position;
+		if (dir.magnitude < followDist && tdir.magnitude < followDist)
+		{
+			SetDestination(target.transform.position);
+			if (Vector2.Distance(target.transform.position, transform.position) < meleeDist)
+			{
+				weapon.TryStab();
+				anim.SetBool("swinging", true);
+				Invoke(nameof(EndStab), weapon.attackDuration + weapon.killDelay);
+			}
+		}
+		else if(dir.magnitude > 2) {
+			SetDestination(start);
 		}
 	}
 

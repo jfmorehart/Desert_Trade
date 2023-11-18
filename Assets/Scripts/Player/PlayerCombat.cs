@@ -110,4 +110,6 @@ public class PlayerCombat : MonoBehaviour
 		g.GetComponent<Throwable>().Throw(mvm.normalized, pmov.team);
 
 	}
+
+
 }

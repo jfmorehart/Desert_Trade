@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestTown.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Desert_Trade.unity
     guid: ba209f6d6e4064731833b5f116acbc46
   m_configObjects: {}

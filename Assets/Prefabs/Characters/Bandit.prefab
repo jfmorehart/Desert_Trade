@@ -121,6 +121,8 @@ MonoBehaviour:
   target: {fileID: 0}
   meleeDist: 3
   weapon: {fileID: 6181672641812219582}
+  numDrops: 4
+  followDist: 6
 --- !u!61 &4356296014928201717
 BoxCollider2D:
   m_ObjectHideFlags: 0

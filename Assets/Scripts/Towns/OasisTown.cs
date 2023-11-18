@@ -12,7 +12,7 @@ public class OasisTown : Town
         Cotton
     }
 
-    private int stabilizer = 99;
+    private int stabilizer = 50;
 
     protected override void Restock()
     {

@@ -22,7 +22,7 @@ public class HP : MonoBehaviour
 	public void Damage(float dmg) {
 
 		float newhp = hp - dmg;
-
+		if (newhp > hp_max) newhp = hp_max;
 		if(newhp <= 0) {
 			newhp = 0;
 			

@@ -29,7 +29,7 @@ public class BtnTrade : MonoBehaviour
             if (!inventRestrict.CheckIfMax() && InventData.updateQuant())
             {
                 inventRestrict.UpdateMax();
-                text.text = "Remain: " + (inventRestrict.limit - inventRestrict.max);      
+                text.text = "Remain: " + (inventRestrict.maxi - inventRestrict.count);      
                 InventDisplay.UpdateInventoryPlayer();
 
             }
@@ -41,6 +41,8 @@ public class BtnTrade : MonoBehaviour
         {
             if (InventData.updateQuant())
             {
+                inventRestrict.returnQuant();
+                text.text = "Remain: " + (inventRestrict.maxi - inventRestrict.count);
                 InventDisplay.UpdateInventoryPlayer();
             }
 

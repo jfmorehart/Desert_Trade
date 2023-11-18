@@ -84,6 +84,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1164968176, guid: a6d6585eecdb24af39a668bcbd1adf87,
         type: 3}
+    - target: {fileID: 1887757062235488825, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887757062235488825, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.69757134
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887757062235488825, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.53813636
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887757062235488825, guid: 0c47e6f52dd574d418a1c3166f332828,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2937768394021763241, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
       propertyPath: meleeKey
@@ -92,7 +112,7 @@ PrefabInstance:
     - target: {fileID: 2937768394021763241, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}
       propertyPath: throwKey
-      value: 106
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2937768394021763241, guid: 0c47e6f52dd574d418a1c3166f332828,
         type: 3}

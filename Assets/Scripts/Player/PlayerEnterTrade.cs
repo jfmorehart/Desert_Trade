@@ -96,32 +96,32 @@ public class PlayerEnterTrade : MonoBehaviour
             foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
             {
                 inventRestrict = GameObject.Find("panel" + name).GetComponent<InventRestrict>();
-                inventRestrict.max = 0;
+                inventRestrict.count = 0;
             }
         }
 
         UI = GameObject.Find("Inventory").GetComponent<InventShow>();
         UI.ShowAllChildren();
 
-        if (town == GlobalEnum.TownNames.Cave)
+        if (town == GlobalEnum.TownNames.Rawasab)
         {
             currentTown = GameObject.FindGameObjectWithTag("Cave").GetComponent<CaveTown>();
-            PlayerInventory.updateTown("Cave");
+            PlayerInventory.updateTown(GlobalEnum.TownNames.Rawasab);
         }
-        else if (town == GlobalEnum.TownNames.CulturalHub)
+        else if (town == GlobalEnum.TownNames.Tajarah)
         {
             currentTown = GameObject.FindGameObjectWithTag("CulturalHub").GetComponent<Cultural>();
-            PlayerInventory.updateTown("CulturalHub");
+            PlayerInventory.updateTown(GlobalEnum.TownNames.Tajarah);
         }
         else if (town == GlobalEnum.TownNames.Underground)
         {
             currentTown = GameObject.FindGameObjectWithTag("Underground").GetComponent<UndergroundTown>();
-            PlayerInventory.updateTown("Undergorund");
+            PlayerInventory.updateTown(GlobalEnum.TownNames.Underground);
         }
-        else if (town == GlobalEnum.TownNames.Oasis)
+        else if (town == GlobalEnum.TownNames.Zephyr)
         {
             currentTown = GameObject.FindGameObjectWithTag("Oasis").GetComponent<OasisTown>();
-            PlayerInventory.updateTown("Oasis");
+            PlayerInventory.updateTown(GlobalEnum.TownNames.Zephyr);
         }
 
         InventDisplay.UpdateInventory();
@@ -132,7 +132,7 @@ public class PlayerEnterTrade : MonoBehaviour
             inventRestrict = GameObject.Find("panel" + name).GetComponent<InventRestrict>();
             //inventRestrict.max = 0;
             text = GameObject.Find(name + "Left").GetComponent<TextMeshProUGUI>();
-            text.text = "Remain: " + (inventRestrict.limit - inventRestrict.max);
+            text.text = "Remain: " + (inventRestrict.maxi - inventRestrict.count);
         }
     }
 }
