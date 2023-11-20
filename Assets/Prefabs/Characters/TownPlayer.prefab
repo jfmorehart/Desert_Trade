@@ -176,6 +176,7 @@ MonoBehaviour:
   throwable: {fileID: 5229009580439373067, guid: 1514088b8417d4401916f89a919f8973,
     type: 3}
   throwReload: 0.5
+  throwDelay: 0
   anim: {fileID: 4532453072934853891}
 --- !u!61 &1331516492101389708
 BoxCollider2D:
@@ -245,7 +246,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
