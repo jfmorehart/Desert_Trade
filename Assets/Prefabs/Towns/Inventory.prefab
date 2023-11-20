@@ -555,6 +555,18 @@ MonoBehaviour:
           m_StringArgument: Gold
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &548268593527798327
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +785,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Cotton
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &831840225512337738
@@ -1418,6 +1442,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Silk
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1454605787974534629
@@ -2240,6 +2276,18 @@ MonoBehaviour:
           m_StringArgument: Silk
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &2409961873867448866
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,6 +2567,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Dates
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &2617839102208582558
@@ -3260,6 +3320,18 @@ MonoBehaviour:
           m_StringArgument: Gold
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &3424270603438935798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,6 +3748,18 @@ MonoBehaviour:
           m_StringArgument: Copper
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3631101300341081507
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,6 +3993,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Dates
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &3713409048711967740
@@ -5229,6 +5325,18 @@ MonoBehaviour:
           m_StringArgument: Cotton
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &4600220696859665992
 GameObject:
   m_ObjectHideFlags: 0
@@ -5507,6 +5615,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Dagger
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5037499168753398426
@@ -6194,6 +6314,18 @@ MonoBehaviour:
           m_StringArgument: Jewelry
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &6169603973898658076
 GameObject:
   m_ObjectHideFlags: 0
@@ -6820,6 +6952,18 @@ MonoBehaviour:
           m_StringArgument: Jewelry
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6902927261405555960
 GameObject:
   m_ObjectHideFlags: 0
@@ -6964,6 +7108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8117210375792468436}
   - component: {fileID: 4712325619799339865}
+  - component: {fileID: 2326271120298048308}
   m_Layer: 0
   m_Name: _Inventory
   m_TagString: Panel
@@ -7010,6 +7155,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventRestrict: {fileID: 0}
   text: {fileID: 0}
+--- !u!114 &2326271120298048308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6932581277170591536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594a68d18c32e401194a8a63a5cb22cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPressSound: {fileID: 8300000, guid: 428619a4f846c4d898b5a9ca48ae5e74, type: 3}
 --- !u!1 &6949035189378524393
 GameObject:
   m_ObjectHideFlags: 0
@@ -7245,6 +7403,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Myrrh
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7063542213121690899
@@ -8174,6 +8344,18 @@ MonoBehaviour:
           m_StringArgument: Copper
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &7462553084521622495
 GameObject:
   m_ObjectHideFlags: 0
@@ -8353,6 +8535,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Myrrh
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &7760624638493891396
@@ -9170,8 +9364,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9206,7 +9400,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -56.44832, y: 0, z: -24.996357, w: 0}
+  m_margin: {x: -104.06758, y: -13.989828, z: -61.39377, w: -33.53946}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9566,6 +9760,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Dagger
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2326271120298048308}
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &9202429079581440491
