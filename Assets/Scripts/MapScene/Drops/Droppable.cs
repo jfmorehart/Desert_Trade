@@ -8,7 +8,7 @@ public class Droppable : MonoBehaviour
 
     Vector2 dir;
 	float drag = 2;
-	float spinSpeed = 180;
+	float spinSpeed = 0;//180;
 	float maxGravDist = 3;
 	float accel = 10;
 
