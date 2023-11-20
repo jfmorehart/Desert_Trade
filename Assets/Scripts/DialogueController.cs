@@ -33,8 +33,8 @@ public class DialogueController : MonoBehaviour
         else
         {
             enable = false;
-            playerEnterTrade = GameObject.Find("Merchant").GetComponent<PlayerEnterTrade>();
-            playerEnterTrade.callShop();
+            playerEnterTrade = GameObject.Find("Merchant")?.GetComponent<PlayerEnterTrade>();
+            playerEnterTrade?.callShop();
         }
     }
     IEnumerator WriteSentence(){

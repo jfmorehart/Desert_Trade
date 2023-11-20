@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueText: {fileID: 0}
   Sentences:
-  - Anything you'd like to buy?
+  - Anything for sale?
   DialogueSpeed: 0
