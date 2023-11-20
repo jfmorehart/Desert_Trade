@@ -22,7 +22,7 @@ public class HP : MonoBehaviour
 	public void Damage(float dmg) {
 
 		float newhp = hp - dmg;
-
+		if (newhp > hp_max) newhp = hp_max;
 		if(newhp <= 0) {
 			newhp = 0;
 			
@@ -51,7 +51,6 @@ public class HP : MonoBehaviour
 		float hpScale;
 		float deltaHP = (hp - lerpHP) * (1 / lerpLengthSeconds);
 
-		hren.enabled = true;
 		for (int i = 0; i < 500; i++)
 		{
 			hpScale = lerpHP / hp_max;

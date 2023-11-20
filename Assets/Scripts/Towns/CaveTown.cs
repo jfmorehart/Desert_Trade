@@ -8,58 +8,41 @@ public class CaveTown : Town
     public enum CaveCommoditiesNames
     {
         Jewelry,
-        Dagger,
-        Pot
+        Dagger
     }
-    private int stabilizer = 99;
 
+    private int stabilizer = 40;
+
+
+    //supplies for the locally produced products are always max
     protected override void Restock()
     {
-        supplyList[CommoditiesNames.Jewelry] = (supplyList[CommoditiesNames.Jewelry] > supplyInitialValue) ? supplyList[CommoditiesNames.Jewelry] : supplyInitialValue;
-        supplyList[CommoditiesNames.Dagger] = (supplyList[CommoditiesNames.Dagger] > supplyInitialValue) ? supplyList[CommoditiesNames.Dagger] : supplyInitialValue;
-        supplyList[CommoditiesNames.Pot] = (supplyList[CommoditiesNames.Pot] > supplyInitialValue) ? supplyList[CommoditiesNames.Pot] : supplyInitialValue;
+        supplyList[GlobalEnum.CommoditiesNames.Jewelry] = (supplyList[GlobalEnum.CommoditiesNames.Jewelry] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Jewelry] : supplyInitialValue;
+        supplyList[GlobalEnum.CommoditiesNames.Dagger] = (supplyList[GlobalEnum.CommoditiesNames.Dagger] > supplyInitialValue) ? supplyList[GlobalEnum.CommoditiesNames.Dagger] : supplyInitialValue;
+        //supplyList[CommoditiesNames.Pot] = (supplyList[CommoditiesNames.Pot] > supplyInitialValue) ? supplyList[CommoditiesNames.Pot] : supplyInitialValue;
     }
 
-    protected override Dictionary<CommoditiesNames, int> UpdatePrice(Dictionary<CommoditiesNames, int> priceList)
+
+    protected override Dictionary<GlobalEnum.CommoditiesNames, int> UpdatePrice(Dictionary<GlobalEnum.CommoditiesNames, int> priceList)
     {
-        balanceSupply(netWork);
 
         //supply for others decrease over time
-        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
+        foreach (GlobalEnum.CommoditiesNames name in Enum.GetValues(typeof(GlobalEnum.CommoditiesNames)))
         {
-            if (name == CommoditiesNames.Jewelry || name == CommoditiesNames.Dagger || name == CommoditiesNames.Pot)
+            if (name == GlobalEnum.CommoditiesNames.Jewelry || name == GlobalEnum.CommoditiesNames.Dagger)
             {
                 demandList[name] = 1;
             }
-            
-
+            else
+            {
+                demandList[name] = demandInitialValue;
+            }
+            decreaseSupply(netWork, name);
+            balanceSupply(netWork, name);
             priceList[name] = Mathf.Clamp(commoditiesPrice[name][0] * (demandList[name] + stabilizer) / (supplyList[name] + stabilizer), commoditiesPrice[name][2], commoditiesPrice[name][1]);
-            print(name + " " + priceList[name]);
+            //print(name + " cave " + priceList[name]);
         }
         return priceList;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        commoditiesPrice = PopulatePrice(commoditiesPrice);
-        demandList = PopulateDemand(demandList);
-        supplyList = PopulateDemand(supplyList);
-
-        demandList[CommoditiesNames.Jewelry] = 1;
-        demandList[CommoditiesNames.Dagger] = 1;
-        demandList[CommoditiesNames.Pot] = 1;
-        foreach (CommoditiesNames name in Enum.GetValues(typeof(CommoditiesNames)))
-        {
-            finalValue.Add(name, commoditiesPrice[name][0]);
-        }
-
-        UpdatePrice(finalValue);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
