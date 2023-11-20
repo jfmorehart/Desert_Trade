@@ -680,6 +680,32 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 287936440702472935, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -20.910877
+      objectReference: {fileID: 0}
+    - target: {fileID: 287936440702472935, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_margin.x
+      value: 30.954453
+      objectReference: {fileID: 0}
+    - target: {fileID: 287936440702472935, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 25.405218
+      objectReference: {fileID: 0}
+    - target: {fileID: 287936440702472935, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -59.574814
+      objectReference: {fileID: 0}
+    - target: {fileID: 512517064951782600, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eec02d1989bde407592be86b0b600a8a,
+        type: 3}
     - target: {fileID: 1450999842741692643, guid: e5e5815fabb4141f49f2612732e9ac27,
         type: 3}
       propertyPath: DialogueText
@@ -690,6 +716,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialoguePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4856459495471340800, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 256.3058
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856459495471340800, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 323.3407
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856459495471340800, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -599
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856459495471340800, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 105.44535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413081341844592072, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.117035
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413081341844592072, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.117035
+      objectReference: {fileID: 0}
+    - target: {fileID: 5413081341844592072, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.117035
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535220687766805412, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9695b990d9aa46c08f29f47cba91d4e,
+        type: 3}
     - target: {fileID: 7856069932610831789, guid: e5e5815fabb4141f49f2612732e9ac27,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -739,6 +806,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059555625680246829, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 519
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059555625680246829, guid: e5e5815fabb4141f49f2612732e9ac27,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -165
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
